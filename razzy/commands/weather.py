@@ -11,9 +11,8 @@ class Weather(CommandBase):
     return ["what", "weather"]
     
   def run(self):
-    #bostonweather = pywapi.get_weather_from_weather_com('UKXX1701', 'metric')
-    #message = ("In Boston, Lincolnshire it is currently: " + str(bostonweather['current_conditions']['text']).lower() + " and " + str(bostonweather['current_conditions']['temperature']).lower());
-    message = "The weather is nice"
+    bostonweather = pywapi.get_weather_from_weather_com('UKXX1701', 'metric')
+    message = ("In Boston, Lincolnshire it is currently: " + str(bostonweather['current_conditions']['text']).lower() + " and " + str(bostonweather['current_conditions']['temperature']).lower());
     response = CommandResponse(CommandResponse.CODE_OK, message);
     return response
   

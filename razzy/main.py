@@ -7,8 +7,8 @@ print("Say Something!")
 mouth.speak("Good evening, my name is Razzy")
 
 while True:
-  #message = ears.listen()
-  message = "sleep"
+  message = ears.listen()
+  #message = "sleep"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   if (command):
