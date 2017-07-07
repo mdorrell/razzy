@@ -1,7 +1,7 @@
 class CommandResponse():
   CODE_EXIT = 0
   CODE_OK = 200
-
+  
   def __init__(self,code, message):
     self.code = code
     self.message = message

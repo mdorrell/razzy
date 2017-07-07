@@ -9,7 +9,7 @@ class ShutDown(CommandBase):
     return ["sleep"]
     
   def run(self):
-    message = "Good night"
+    message = ["Good night"]
     response = CommandResponse(CommandResponse.CODE_EXIT, message);
     return response
   

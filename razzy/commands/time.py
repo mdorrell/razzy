@@ -11,6 +11,6 @@ class Time(CommandBase):
     
   def run(self):
     time = datetime.strftime(datetime.now(), '%H:%M:%S')
-    message = "The time is now " + time
+    message = ["The time is now " + time]
     response = CommandResponse(CommandResponse.CODE_OK, message);  
     return response

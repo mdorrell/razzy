@@ -1,7 +1,12 @@
 import os
+import time
 
 class Mouth():
     
-  def speak(self, message):
+  def speak(self, lines):
     tts_engine = 'espeak'
-    return os.system(tts_engine + ' "' + message + '"')
+    for line in lines:
+      print line
+      os.system(tts_engine + ' "' + line + '"')
+      time.sleep(.5)
+    return
