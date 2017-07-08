@@ -6,7 +6,7 @@ mouth = Mouth()
 mouth.speak(["Hello, my name is Razzy"])
 while True:
   #message = ears.listen()
-  message = "what is the weather"
+  message = "what time is it"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   if (command):
