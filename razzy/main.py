@@ -2,11 +2,13 @@ from senses import *
 from commands import *
 ears = Ears()
 mouth = Mouth()
+lights = Lights()
 
-mouth.speak(["Hello, my name is Razzy"])
+lights.redLight(1);
+#mouth.speak(["Hello, my name is Razzy"])
 while True:
   #message = ears.listen()
-  message = "what time is it"
+  message = "I want to watch Peppa Pig"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   if (command):
