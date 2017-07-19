@@ -4,14 +4,19 @@ ears = Ears()
 mouth = Mouth()
 lights = Lights()
 
-lights.redLight(1);
 #mouth.speak(["Hello, my name is Razzy"])
 while True:
+  # Turn on light when listening
+  lights.redLight(1);
+
   #message = ears.listen()
   message = "I want to watch Peppa Pig"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   if (command):
+    # Turn off light when command is recieved
+    lights.redLight(0);
+
     # Look for class named "command" in the list of commands
     commandClass = globals()[command]
     response = commandClass().run()
