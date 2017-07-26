@@ -6,7 +6,7 @@ setup (
        packages=find_packages(),
 
        # Declare your packages' dependencies here, for eg:
-       install_requires=['SpeechRecognition'],
+       install_requires=['SpeechRecognition', 'pyaudio', 'selenium'],
 
        # Fill in these to make your Egg ready for upload to
        # PyPI
