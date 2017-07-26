@@ -10,7 +10,7 @@ while True:
   lights.redLight(1);
 
   #message = ears.listen()
-  message = "Play Nirvana"
+  message = "play Nirvana"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   if (command):
