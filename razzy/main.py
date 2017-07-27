@@ -9,8 +9,8 @@ while True:
   # Turn on light when listening
   lights.redLight(1);
 
-  #message = ears.listen()
-  message = "play Nirvana"
+  message = ears.listen()
+  #message = "play Foo Fighters"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   if (command):
@@ -18,15 +18,15 @@ while True:
     lights.redLight(0);
     # Look for class named "command" in the list of commands
     commandClass = globals()[command]
-    response = commandClass().run()
+    response = commandClass().run(message)
     # code 200 is speak and continue
     if (response.code == CommandResponse.CODE_OK):
       mouth.speak(response.message)
-      break
     # code 0 is speak and exit
     elif (response.code == CommandResponse.CODE_EXIT):
       mouth.speak(response.message)
-      break
+    print "done command"
   else:
     mouth.speak([message])
-  exit()
+  print "keep looping"
+  #exit()

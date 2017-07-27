@@ -16,7 +16,7 @@ class Time(CommandBase):
   def getKeywords(self):
     return ["what", "time"]
     
-  def run(self):
+  def run(self, message):
     time = datetime.strftime(datetime.now(), '%H:%M:%S')
     #message = ["The time is now " + time]
     message = self.getResponse([time])

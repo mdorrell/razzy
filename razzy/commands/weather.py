@@ -11,7 +11,7 @@ class Weather(CommandBase):
   def getKeywords(self):
     return ["what", "weather"]
     
-  def run(self):
+  def run(self, message):
     data = self.getData()
     now       = self.filterMessage(data["forecast"]['txt_forecast']['forecastday'][0]['fcttext'])
     laterName = data["forecast"]['txt_forecast']['forecastday'][1]['title']

@@ -5,7 +5,7 @@ class CommandBase(object):
     __metaclass__ = abc.ABCMeta
     
     @abc.abstractmethod
-    def run(self, input):
+    def run(self, message):
         """Retrieve data from the input source and return an object."""
         return
     

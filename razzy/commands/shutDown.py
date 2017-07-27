@@ -8,7 +8,7 @@ class ShutDown(CommandBase):
   def getKeywords(self):
     return ["sleep"]
     
-  def run(self):
+  def run(self, message):
     message = ["Good night"]
     response = CommandResponse(CommandResponse.CODE_EXIT, message);
     return response
