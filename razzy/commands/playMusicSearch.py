@@ -1,14 +1,17 @@
 import abc
 import re
-import subprocess
-import time
+import imp
 
 from commandBase import CommandBase
 from commandResponse import CommandResponse
 
-class Spotify(CommandBase):
-  # path to sp
-  spPath = '/home/mdorrell/sites/razzy/bin/sp'
+class PlayMusicSearch(CommandBase):
+  spotify = ''
+  
+  responses = [
+    "Playing {0}",
+    "Next up is {0}",
+  ]
   
   #---------------------
   # Keywords to initiate command
@@ -22,29 +25,14 @@ class Spotify(CommandBase):
   #---------------------    
   def run(self, message):
     keyword = self.parseMessage(message)
-    self.openSpotify()
-    self.search(keyword)
+    senses = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/spotify.py')
+    self.spotify = senses.Spotify()
+    self.spotify.search(keyword)
     
-    message = ["I will play " + keyword]
+    message = self.getResponse([keyword])
     response = CommandResponse(CommandResponse.CODE_OK, message)
     return response
-  
-  #---------------------
-  # Open spotify if it isn't already
-  #---------------------
-  def openSpotify(self):
-    try:
-      isOpen = subprocess.check_output(self.spPath + " version", shell=True)
-    except:
-      subprocess.call("spotify &", shell=True)
      
-  #---------------------
-  # Search for music
-  #---------------------
-  def search(self, keyword):
-    print "DO SEARCH"
-    searchCommand = self.spPath + ' search "' + keyword + '"'
-    subprocess.call(searchCommand, shell=True)
 
   #---------------------
   # Get search keyword from the search string
