@@ -27,10 +27,14 @@ class Ears():
     return message
   
   def checkMessage(self, message):
+    print "check message"
+    matches = []
     message_words = message.split()
     for command in COMMANDS:
       
       if (set(set(COMMANDS[command])).issubset(message_words)):
-        return command
+        matches[command] = len(message_words)
 
+    print matches
+    exit()
     return False

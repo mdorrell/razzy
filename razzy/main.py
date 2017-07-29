@@ -9,10 +9,13 @@ while True:
   # Turn on light when listening
   lights.redLight(1);
 
-  message = ears.listen()
-  #message = "play Foo Fighters"
+  #message = ears.listen()
+  message = "play next"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
+  print command
+  exit()
+  
   if (command):
     # Turn off light when command is recieved
     lights.redLight(0);
