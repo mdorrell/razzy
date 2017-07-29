@@ -3,7 +3,7 @@ from commandBase import CommandBase
 from commandResponse import CommandResponse
 from datetime import datetime
 
-class Time(CommandBase):
+class Clock(CommandBase):
   
   responses = [
     "The time is now {0}",

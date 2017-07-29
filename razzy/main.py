@@ -1,21 +1,23 @@
-from senses import *
 from commands import *
-ears = Ears()
-mouth = Mouth()
-lights = Lights()
+import imp
+earsModule   = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/ears.py')
+mouthModule  = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/mouth.py')
+lightsModule = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/lights.py')
+
+ears = earsModule.Ears()
+mouth = mouthModule.Mouth()
+lights = lightsModule.Lights()
 
 #mouth.speak(["Hello, my name is Razzy"])
 while True:
   # Turn on light when listening
   lights.redLight(1);
 
-  #message = ears.listen()
-  message = "play next"
+  message = ears.listen()
+  #message = "play next"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   print command
-  exit()
-  
   if (command):
     # Turn off light when command is recieved
     lights.redLight(0);

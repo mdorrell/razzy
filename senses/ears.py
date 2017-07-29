@@ -1,5 +1,6 @@
 import speech_recognition as sr
 import pyaudio
+import operator
 from commands import COMMANDS
 
 class Ears():
@@ -27,14 +28,14 @@ class Ears():
     return message
   
   def checkMessage(self, message):
-    print "check message"
-    matches = []
+    matches = {}
     message_words = message.split()
     for command in COMMANDS:
-      
       if (set(set(COMMANDS[command])).issubset(message_words)):
-        matches[command] = len(message_words)
+        # make list of commands with count of words matched
+        matches[command] = len(COMMANDS[command])
 
-    print matches
-    exit()
-    return False
+    # get command with highest number of words matched
+    command = max(matches.iteritems(), key=operator.itemgetter(1))[0]
+
+    return command
