@@ -4,7 +4,7 @@ import imp
 from commandBase import CommandBase
 from commandResponse import CommandResponse
 
-class PlayMusicNext(CommandBase):
+class PlayMusicPrev(CommandBase):
   spotify = ''
   
   responses = [

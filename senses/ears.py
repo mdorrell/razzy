@@ -28,6 +28,7 @@ class Ears():
     return message
   
   def checkMessage(self, message):
+    activeCommand = False;
     matches = {}
     message_words = message.split()
     for command in COMMANDS:
@@ -35,7 +36,9 @@ class Ears():
         # make list of commands with count of words matched
         matches[command] = len(COMMANDS[command])
 
+    print matches
     # get command with highest number of words matched
-    command = max(matches.iteritems(), key=operator.itemgetter(1))[0]
+    if matches:   
+      activeCommand = max(matches.iteritems(), key=operator.itemgetter(1))[0]
 
-    return command
+    return activeCommand
