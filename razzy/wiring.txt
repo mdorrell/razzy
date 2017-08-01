@@ -1,0 +1,7 @@
+Speakers amp
+L- to R-
+R- (or L-) to audio input copper ground
+audio input red to R+
+audio input white to L+
+GND tp GND (raspberry pi gpio breadboard blue row)
+VDD to GPIO 3v3
