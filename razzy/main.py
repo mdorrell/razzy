@@ -8,7 +8,7 @@ ears = earsModule.Ears()
 mouth = mouthModule.Mouth()
 lights = lightsModule.Lights()
 
-#mouth.speak(["Hello, my name is Razzy"])
+mouth.speak(["Hello, my name is Razzy"])
 while True:
   # Turn on light when listening
   lights.redLight(1);
