@@ -7,6 +7,9 @@ class Lights():
   greenLed = 18
   redLed   = 23
   
+  # stores gpio reference
+  gpio = '';
+  
   #--------------------
   # Constructor
   #--------------------
@@ -37,6 +40,8 @@ class Lights():
       GPIO.setmode(GPIO.BCM)
       GPIO.setup(self.greenLed, GPIO.OUT)
       GPIO.setup(self.redLed, GPIO.OUT)
+      self.gpio = GPIO
+      
       return True
     except ImportError:
       return False
@@ -55,7 +60,7 @@ class Lights():
     
     # if we have a Pi light it
     if (self.hasPi):  
-      GPIO.output(light, isOn)
+      self.gpio.output(light, isOn)
 
   
   def module_exists(module_name):
