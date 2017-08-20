@@ -1,8 +1,12 @@
 from commands import *
 import imp
-earsModule   = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/ears.py')
-mouthModule  = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/mouth.py')
-lightsModule = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/lights.py')
+import sys
+import os
+
+ROOT_FILEPATH = os.path.dirname(sys.modules['__main__'].__file__)
+earsModule   = imp.load_source('senses', ROOT_FILEPATH + '/../senses/ears.py')
+mouthModule  = imp.load_source('senses', ROOT_FILEPATH + '/../senses/mouth.py')
+lightsModule = imp.load_source('senses', ROOT_FILEPATH + '/../senses/lights.py')
 
 ears = earsModule.Ears()
 mouth = mouthModule.Mouth()
@@ -14,7 +18,7 @@ while True:
   lights.redLight(1);
 
   message = ears.listen()
-  #message = "play next"
+  message = "play nirvana"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   print command
@@ -34,4 +38,4 @@ while True:
   else:
     mouth.speak([message])
   print "keep looping"
-  #exit()
+  exit()

@@ -1,8 +1,11 @@
 import subprocess
+import sys
+import os
 
 class Spotify():
   # path to sp
-  spPath = '/home/mdorrell/sites/razzy/bin/sp'
+  root = os.path.dirname(sys.modules['__main__'].__file__) 
+  spPath = root + '/../bin/sp'
   
   #--------------------
   # Constructor

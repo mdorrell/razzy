@@ -1,6 +1,8 @@
 import abc
 import re
 import imp
+import sys
+import os
 
 from commandBase import CommandBase
 from commandResponse import CommandResponse
@@ -25,8 +27,7 @@ class PlayMusicSearch(CommandBase):
   #---------------------    
   def run(self, message):
     keyword = self.parseMessage(message)
-    senses = imp.load_source('senses', '/home/mdorrell/sites/razzy/senses/spotify.py')
-    self.spotify = senses.Spotify()
+    self.loadSpotify();
     self.spotify.search(keyword)
     
     message = self.getResponse([keyword])
@@ -42,3 +43,13 @@ class PlayMusicSearch(CommandBase):
     result = re.search('play ([^.]*).*', message)
     keyword = result.group(1)
     return keyword
+  
+  #-------------------------
+  # load spotify
+  #-------------------------
+  def loadSpotify(self):
+    root = os.path.dirname(sys.modules['__main__'].__file__)
+    spotifyPath = root + '/../senses/spotify.py'
+    
+    senses = imp.load_source('senses', spotifyPath)
+    self.spotify = senses.Spotify()
