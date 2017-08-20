@@ -18,7 +18,7 @@ while True:
   lights.redLight(1);
 
   message = ears.listen()
-  message = "play nirvana"
+  #message = "play nirvana"
   print "You said '" + message + "'"
   command = ears.checkMessage(message);
   print command
