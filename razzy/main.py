@@ -38,4 +38,3 @@ while True:
   else:
     mouth.speak([message])
   print "keep looping"
-  exit()
