@@ -4,10 +4,10 @@ class Lights():
   hasPi = False
 
   # pin number of green led 
-  greenLed = 13
-  blueLed  = 26
+  greenLed = 26
+  blueLed  = 13
   redLed   = 5
-  
+
   # stores gpio reference
   gpio = '';
   
@@ -47,6 +47,7 @@ class Lights():
       GPIO.setmode(GPIO.BCM)
       GPIO.setup(self.greenLed, GPIO.OUT)
       GPIO.setup(self.redLed, GPIO.OUT)
+      GPIO.setup(self.blueLed, GPIO.OUT)
       self.gpio = GPIO
       
       return True
