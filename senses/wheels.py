@@ -75,6 +75,6 @@ class Wheels():
       time.sleep(waitTime)
   
       # Stop the wheels
-      pwm.set_pwm(11, 0, 0);
-      pwm.set_pwm(4, 0, 0);
+      self.pwm.set_pwm(11, 0, 0);
+      self.pwm.set_pwm(4, 0, 0);
 
