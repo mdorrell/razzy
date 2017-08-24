@@ -7,10 +7,12 @@ ROOT_FILEPATH = os.path.dirname(sys.modules['__main__'].__file__)
 earsModule   = imp.load_source('senses', ROOT_FILEPATH + '/../senses/ears.py')
 mouthModule  = imp.load_source('senses', ROOT_FILEPATH + '/../senses/mouth.py')
 lightsModule = imp.load_source('senses', ROOT_FILEPATH + '/../senses/lights.py')
+wheelsModule = imp.load_source('senses', ROOT_FILEPATH + '/../senses/wheels.py')
 
 ears = earsModule.Ears()
 mouth = mouthModule.Mouth()
 lights = lightsModule.Lights()
+wheels = wheelsModule.Wheels()
 
 try:
   mouth.speak(["Hello, my name is Razzy"])
@@ -49,3 +51,4 @@ try:
     print "keep looping"
 finally:
   lights.cleanup()
+  wheels.stop()

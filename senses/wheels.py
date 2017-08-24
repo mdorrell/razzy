@@ -43,7 +43,13 @@ class Wheels():
   #---------------------------
   def left(self, time):
     self.moveWheels(self.servo_min, self.servo_min, time) 
-        
+  
+  #---------------------------
+  # Stop moving
+  #---------------------------
+  def stop(self):
+    self.moveWheels(0, 0, 0)
+    
   #----------------------------------
   # stuff we need to do tp setup the pwm
   #----------------------------------
