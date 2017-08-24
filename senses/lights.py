@@ -36,8 +36,11 @@ class Lights():
   #---------------------------
   def blueLight(self, isOn):
     self.toggleLight("Blue", self.blueLed, isOn)
-     
-  def cleanup
+
+  #---------------------------
+  # Cleanup 
+  #---------------------------     
+  def cleanup(self):
     self.gpio.cleanup()
 
   #----------------------------------
