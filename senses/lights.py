@@ -35,8 +35,11 @@ class Lights():
   # toggle red light status
   #---------------------------
   def blueLight(self, isOn):
-    self.toggleLight("Blue", self.greenLed, isOn)
-        
+    self.toggleLight("Blue", self.blueLed, isOn)
+     
+  def cleanup
+    self.gpio.cleanup()
+
   #----------------------------------
   # stuff we need to do to use GPIO
   #----------------------------------
