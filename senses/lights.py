@@ -4,8 +4,9 @@ class Lights():
   hasPi = False
 
   # pin number of green led 
-  greenLed = 18
-  redLed   = 23
+  greenLed = 13
+  blueLed  = 26
+  redLed   = 5
   
   # stores gpio reference
   gpio = '';
@@ -25,11 +26,17 @@ class Lights():
     self.toggleLight("Red", self.redLed, isOn)
   
   #---------------------------
-  # toggle red light status
+  # toggle green light status
   #---------------------------
   def greenLight(self, isOn):
     self.toggleLight("Green", self.greenLed, isOn)
-    
+
+  #---------------------------
+  # toggle red light status
+  #---------------------------
+  def blueLight(self, isOn):
+    self.toggleLight("Blue", self.greenLed, isOn)
+        
   #----------------------------------
   # stuff we need to do to use GPIO
   #----------------------------------

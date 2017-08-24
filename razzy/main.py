@@ -16,6 +16,8 @@ mouth.speak(["Hello, my name is Razzy"])
 while True:
   # Turn on light when listening
   lights.redLight(1);
+  lights.redBlue(1);
+  lights.redGreen(1);
 
   message = ears.listen()
   #message = "play nirvana"
@@ -25,6 +27,9 @@ while True:
   if (command):
     # Turn off light when command is recieved
     lights.redLight(0);
+    lights.redBlue(0);
+    lights.redGreen(0);
+
     # Look for class named "command" in the list of commands
     commandClass = globals()[command]
     response = commandClass().run(message)
