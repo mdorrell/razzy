@@ -64,7 +64,7 @@ class Wheels():
   #-------------------------------
   # Toggle light on or off
   #-------------------------------
-  def moveWheels(self, left, right, time):   
+  def moveWheels(self, left, right, waitTime):   
     # if we have a Pi light it
     if (self.hasPi):  
       # Turn wheels on
@@ -72,7 +72,7 @@ class Wheels():
       self.pwm.set_pwm(4, 0, right)
 
       # Let them run
-      time.sleep(5)
+      time.sleep(waitTime)
   
       # Stop the wheels
       pwm.set_pwm(11, 0, 0);
