@@ -72,7 +72,7 @@ class Wheels():
       self.pwm.set_pwm(4, 0, right)
 
       # Let them run
-      time.sleep(time)
+      time.sleep(5)
   
       # Stop the wheels
       pwm.set_pwm(11, 0, 0);
