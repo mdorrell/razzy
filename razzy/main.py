@@ -3,10 +3,13 @@ import sys
 import os
 from senses import *
 
+brain = Brain()
 ears = Ears()
 mouth = Mouth()
 lights = Lights()
 wheels = Wheels()
+
+currentState = "listen";
 
 try:
   mouth.speak(["Hello, my name is Razzy"])
@@ -16,14 +19,14 @@ try:
     lights.blueLight(0);
     lights.greenLight(0);
 
-    #message = ears.listen()
+    message = ears.listen()
+    #message = "what time is it"
 
     lights.redLight(0);
     lights.blueLight(1);
 
-    message = "play nirvana"
     print "You said '" + message + "'"
-    command = ears.checkMessage(message);
+    command = brain.checkMessage(message);
     print command
     if (command):
       # Turn off light when command is recieved
@@ -43,7 +46,6 @@ try:
     else:
       mouth.speak([message])
     print "keep looping"
-    exit()
 finally:
   lights.cleanup()
   wheels.stop()
