@@ -2,17 +2,12 @@ from commands import *
 import imp
 import sys
 import os
+from senses import *
 
-ROOT_FILEPATH = os.path.dirname(sys.modules['__main__'].__file__)
-earsModule   = imp.load_source('senses', ROOT_FILEPATH + '/../senses/ears.py')
-mouthModule  = imp.load_source('senses', ROOT_FILEPATH + '/../senses/mouth.py')
-lightsModule = imp.load_source('senses', ROOT_FILEPATH + '/../senses/lights.py')
-wheelsModule = imp.load_source('senses', ROOT_FILEPATH + '/../senses/wheels.py')
-
-ears = earsModule.Ears()
-mouth = mouthModule.Mouth()
-lights = lightsModule.Lights()
-wheels = wheelsModule.Wheels()
+ears = Ears()
+mouth = Mouth()
+lights = Lights()
+wheels = Wheels()
 
 try:
   mouth.speak(["Hello, my name is Razzy"])
@@ -27,7 +22,7 @@ try:
     lights.redLight(0);
     lights.blueLight(1);
 
-    #message = "play nirvana"
+    message = "what time is it"
     print "You said '" + message + "'"
     command = ears.checkMessage(message);
     print command
