@@ -1,5 +1,4 @@
 from commands import *
-import imp
 import sys
 import os
 from senses import *
@@ -17,12 +16,12 @@ try:
     lights.blueLight(0);
     lights.greenLight(0);
 
-    message = ears.listen()
+    #message = ears.listen()
 
     lights.redLight(0);
     lights.blueLight(1);
 
-    message = "what time is it"
+    message = "play nirvana"
     print "You said '" + message + "'"
     command = ears.checkMessage(message);
     print command
@@ -44,6 +43,7 @@ try:
     else:
       mouth.speak([message])
     print "keep looping"
+    exit()
 finally:
   lights.cleanup()
   wheels.stop()

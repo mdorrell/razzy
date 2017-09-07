@@ -1,8 +1,8 @@
 import abc
 import re
-import imp
 import sys
 import os
+import senses.spotify
 
 from commandBase import CommandBase
 from commandResponse import CommandResponse
@@ -48,8 +48,4 @@ class PlayMusicSearch(CommandBase):
   # load spotify
   #-------------------------
   def loadSpotify(self):
-    root = os.path.dirname(sys.modules['__main__'].__file__)
-    spotifyPath = root + '/../senses/spotify.py'
-    
-    senses = imp.load_source('senses', spotifyPath)
     self.spotify = senses.Spotify()

@@ -1,7 +1,7 @@
 import abc
-import imp
 import sys
 import os
+import senses.wheels
 
 from commandBase import CommandBase
 from commandResponse import CommandResponse
@@ -28,8 +28,4 @@ class MoveBackwards(CommandBase):
   # load wheels
   #-------------------------
   def loadWheels(self):
-    root = os.path.dirname(sys.modules['__main__'].__file__)
-    path = root + '/../senses/wheels.py'
-    
-    senses = imp.load_source('senses', path)
     self.wheels = senses.Wheels()

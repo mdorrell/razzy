@@ -41,7 +41,8 @@ class Lights():
   # Cleanup 
   #---------------------------     
   def cleanup(self):
-    self.gpio.cleanup()
+    if self.hasPi:
+      self.gpio.cleanup()
 
   #----------------------------------
   # stuff we need to do to use GPIO
