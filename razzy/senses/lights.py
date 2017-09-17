@@ -4,9 +4,9 @@ class Lights():
   hasPi = False
 
   # pin number of green led 
-  greenLed = 26
-  blueLed  = 13
-  redLed   = 5
+  greenLed = 6
+  blueLed  = 24
+  redLed   = 12
 
   # stores gpio reference
   gpio = '';
