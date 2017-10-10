@@ -9,7 +9,7 @@ class Lights():
   redLed   = 12
 
   # stores gpio reference
-  gpio = '';
+  gpio = ''
   
   #--------------------
   # Constructor

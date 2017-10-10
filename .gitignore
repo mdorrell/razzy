@@ -1,2 +1,5 @@
 nb-configuration.xml
 *.pyc
+build/
+dist/
+pics/

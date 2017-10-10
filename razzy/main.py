@@ -19,8 +19,8 @@ try:
     lights.blueLight(0);
     lights.greenLight(0);
 
-    message = ears.listen()
-    #message = "what time is it"
+    #message = ears.listen()
+    message = "what do you see"
 
     lights.redLight(0);
     lights.blueLight(1);
@@ -46,6 +46,7 @@ try:
     else:
       mouth.speak([message])
     print "keep looping"
+    exit()
 finally:
   lights.cleanup()
   wheels.stop()
