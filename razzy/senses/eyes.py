@@ -23,7 +23,7 @@ class Eyes():
   # Take a picture save it on disk
   #----------------------------------
   def look(self):
-    lookPath = self.picPath + 'look.bmp'
+    lookPath = self.picPath + 'look.png'
     self.cam.start()
     image = self.cam.get_image()
     pygame.image.save(image, lookPath)
