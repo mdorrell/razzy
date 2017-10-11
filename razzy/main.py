@@ -46,7 +46,6 @@ try:
     else:
       mouth.speak([message])
     print "keep looping"
-    exit()
 finally:
   lights.cleanup()
   wheels.stop()
