@@ -38,8 +38,21 @@ class WhatDoYouSee(CommandBase):
 
     labels = self.eyes.identify(picPath)
 
+    ignore = [
+      'red'
+      'green'
+      'blue'
+      'black'
+      'product'
+    ]
+    
+    description = ''
     for label in labels:
+        
         print label.description
         print label.score
-        
-    return labels[0].description
+        if label.description not in ignore:
+          description = label.description
+          break
+          
+    return description

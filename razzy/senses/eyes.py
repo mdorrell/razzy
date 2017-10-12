@@ -34,11 +34,15 @@ class Eyes():
   #----------------------------------
   def look(self):
 
-    # Turn off all lights because it messes up the picture
+    # Flash all lights on
+    self.lights.redLight(1);
+    self.lights.blueLight(1);
+    self.lights.greenLight(1);
+
+    # Turn off all lights
     self.lights.redLight(0);
     self.lights.blueLight(0);
     self.lights.greenLight(0);
-    time.sleep(1)
     
     lookPath = self.picPath + 'look.png'
     self.cam.start()
