@@ -32,11 +32,6 @@ class Eyes():
   # Take a picture save it on disk
   #----------------------------------
   def look(self):
-    
-    # Turn on all light because its cool
-    self.lights.redLight(1);
-    self.lights.blueLight(1);
-    self.lights.greenLight(1);
 
     # Turn off all lights because it messes up the picture
     self.lights.redLight(0);
