@@ -1,6 +1,8 @@
 import sys
 import io
 import os
+import senses.lights as lights
+
 import pygame
 from pygame.locals import *
 import pygame.camera
@@ -15,6 +17,7 @@ class Eyes():
   root    = os.path.dirname(sys.modules['__main__'].__file__) 
   picPath = root + '/../pics/'
   cam     = ''
+  lights  = ''
   
   #--------------------
   # Constructor
@@ -23,11 +26,23 @@ class Eyes():
     pygame.init()
     pygame.camera.init()
     self.cam = pygame.camera.Camera("/dev/video0",(352,288))
-  
+    self.lights = lights.Lights()
+
   #----------------------------------
   # Take a picture save it on disk
   #----------------------------------
   def look(self):
+    
+    # Turn on all light because its cool
+    self.lights.redLight(1);
+    self.lights.blueLight(1);
+    self.lights.greenLight(1);
+
+    # Turn off all lights because it messes up the picture
+    self.lights.redLight(0);
+    self.lights.blueLight(0);
+    self.lights.greenLight(0);
+    
     lookPath = self.picPath + 'look.png'
     self.cam.start()
     image = self.cam.get_image()
