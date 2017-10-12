@@ -1,6 +1,7 @@
 import sys
 import io
 import os
+import time
 import senses.lights as lights
 
 import pygame
@@ -37,6 +38,7 @@ class Eyes():
     self.lights.redLight(0);
     self.lights.blueLight(0);
     self.lights.greenLight(0);
+    time.sleep(1)
     
     lookPath = self.picPath + 'look.png'
     self.cam.start()
