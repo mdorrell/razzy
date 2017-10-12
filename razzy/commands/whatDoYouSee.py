@@ -39,11 +39,11 @@ class WhatDoYouSee(CommandBase):
     labels = self.eyes.identify(picPath)
 
     ignore = [
-      'red'
-      'green'
-      'blue'
-      'black'
-      'product'
+      'red',
+      'green',
+      'blue',
+      'black',
+      'product',
     ]
     
     description = ''
