@@ -20,7 +20,7 @@ try:
     lights.greenLight(0);
 
     message = ears.listen()
-    #message = "what do you see"
+    #message = "tell me a joke"
 
     lights.redLight(0);
     lights.blueLight(1);
