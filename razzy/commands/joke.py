@@ -22,6 +22,8 @@ class Joke(CommandBase):
         # Assume the value object has proper __unicode__() method
         joke = unicode(a['joke'])
 
+    print joke
+    
     message = [joke]
     response = CommandResponse(CommandResponse.CODE_OK, message);  
     return response
