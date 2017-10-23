@@ -52,7 +52,8 @@ class WhatDoYouSee(CommandBase):
         print label.description
         print label.score
         if label.description not in ignore:
-          description = label.description
+          if label.score > .5:
+            description = description + ', ' + label.description
           break
           
     return description

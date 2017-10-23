@@ -44,9 +44,10 @@ class Eyes():
     self.lights.blueLight(0);
     self.lights.greenLight(0);
     
-    lookPath = self.picPath + 'look.png'
+    lookPath = self.picPath + 'look.jpg'
     self.cam.start()
     image = self.cam.get_image()
+    image = pygame.transform.rotate(image, 90)
     pygame.image.save(image, lookPath)
     self.cam.stop()
     return lookPath

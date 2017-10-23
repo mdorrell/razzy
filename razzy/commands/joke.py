@@ -15,12 +15,9 @@ class Joke(CommandBase):
     headers={'Accept': "application/json"}
     r = requests.get('https://icanhazdadjoke.com/', headers=headers)
     a = json.loads(r.text)
-    print a
-    if type(a['joke']) == str:
-        joke = unicode(a['joke'], "utf-8", errors="ignore")
-    else:
-        # Assume the value object has proper __unicode__() method
-        joke = unicode(a['joke'])
+
+    # Assume the value object has proper __unicode__() method
+    joke = unicode(a['joke'])
 
     print joke
     
