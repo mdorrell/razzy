@@ -13,7 +13,10 @@ class MoveForward(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["move", "forward"]
+    keywords = []
+    keywords.append(["move", "forward"])
+    keywords.append(["go", "forward"])
+    return keywords
     
   def run(self, message):
     print "Move forward"

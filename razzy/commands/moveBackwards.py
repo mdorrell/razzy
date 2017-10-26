@@ -13,8 +13,11 @@ class MoveBackwards(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["move", "backwards"]
-    
+    keywords = []
+    keywords.append(["move", "backwards"])
+    keywords.append(["go", "backwards"])
+    return keywords
+  
   def run(self, message):
     print "Move backwards"
     self.loadWheels()

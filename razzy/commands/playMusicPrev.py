@@ -20,7 +20,9 @@ class PlayMusicPrev(CommandBase):
   #---------------------  
   @staticmethod
   def getKeywords(self):
-    return ["go", "back"]
+    keywords = []
+    keywords.append(["go", "back"])
+    return keywords        
   
   #---------------------
   # Run the command

@@ -20,7 +20,9 @@ class PlayMusicSearch(CommandBase):
   #---------------------  
   @staticmethod
   def getKeywords(self):
-    return ["play"]
+    keywords = []
+    keywords.append(["play"])
+    return keywords      
   
   #---------------------
   # Run the command

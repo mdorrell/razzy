@@ -14,7 +14,9 @@ class Xclock(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["what", "time"]
+    keywords = []
+    keywords.append(["what", "time"])
+    return keywords          
     
   def run(self, message):
     time = datetime.strftime(datetime.now(), '%H:%M:%S')

@@ -18,8 +18,10 @@ class PlayMusicPause(CommandBase):
   #---------------------  
   @staticmethod
   def getKeywords(self):
-    return ["stop", "playing"]
-  
+    keywords = []
+    keywords.append(["stop", "playing"])
+    return keywords     
+    
   #---------------------
   # Run the command
   #---------------------    

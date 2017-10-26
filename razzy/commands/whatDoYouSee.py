@@ -15,7 +15,9 @@ class WhatDoYouSee(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["what", "see"]
+    keywords = []
+    keywords.append(["what", "see"])
+    return keywords      
     
   def run(self, message):
     self.eyes = senses.Eyes()

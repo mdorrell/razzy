@@ -11,7 +11,7 @@ class CommandBase(object):
     
     @abc.abstractmethod
     def getKeywords(self):
-        """Return array of keywords."""
+        """Return array of array of keywords."""
         return
     
     #--------------------------------------------------------

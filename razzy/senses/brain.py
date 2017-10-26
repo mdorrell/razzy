@@ -20,14 +20,14 @@ class Brain():
   # @return string activeCommand
   #---------------------------------
   def checkMessage(self, message):
-    print "current state = " + self.currentState
     activeCommand = False;
     matches = {}
     message_words = message.split()
     for command in COMMANDS:
-      if (set(set(COMMANDS[command])).issubset(message_words)):
-        # make list of commands with count of words matched
-        matches[command] = len(COMMANDS[command])
+      for phrase in COMMANDS[command]:
+        if (set(set(phrase)).issubset(message_words)):
+          # make list of commands with count of words matched
+          matches[command] = len(phrase)
 
     # get command with highest number of words matched
     if matches:   

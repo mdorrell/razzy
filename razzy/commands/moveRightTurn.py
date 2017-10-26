@@ -13,7 +13,9 @@ class MoveRightTurn(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["turn", "right"]
+    keywords = []
+    keywords.append(["turn", "right"])
+    return keywords    
     
   def run(self, message):
     print "Turn right"

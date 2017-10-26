@@ -6,7 +6,9 @@ class ShutDown(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["sleep"]
+    keywords = []
+    keywords.append(["sleep"])
+    return keywords     
     
   def run(self, message):
     message = ["Good night"]

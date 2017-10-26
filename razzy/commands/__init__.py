@@ -25,4 +25,4 @@ for loader, name, is_pkg in pkgutil.walk_packages(__path__):
               COMMANDS[name] = keywords
             except AttributeError:
               pass
-            
+                        

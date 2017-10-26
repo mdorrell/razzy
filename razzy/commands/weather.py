@@ -9,7 +9,9 @@ class Weather(CommandBase):
   
   @staticmethod
   def getKeywords(self):
-    return ["what", "weather"]
+    keywords = []
+    keywords.append(["what", "weather"])
+    return keywords     
     
   def run(self, message):
     data = self.getData()

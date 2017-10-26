@@ -9,7 +9,10 @@ class Joke(CommandBase):
     
   @staticmethod
   def getKeywords(self):
-    return ["tell", "joke"]
+    keywords = []
+    keywords.append(["tell", "joke"])
+    return keywords
+  
     
   def run(self, message):
     headers={'Accept': "application/json"}
