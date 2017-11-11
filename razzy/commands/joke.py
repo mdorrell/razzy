@@ -1,6 +1,7 @@
 import abc
 import requests
 import json
+import unicodedata
 
 from commandBase import CommandBase
 from commandResponse import CommandResponse
@@ -20,9 +21,8 @@ class Joke(CommandBase):
     a = json.loads(r.text)
 
     # Assume the value object has proper __unicode__() method
-    joke = unicode(a['joke'])
-
-    print joke
+    joke = a['joke']
+    joke = unicodedata.normalize('NFKD', joke).encode('ascii','ignore')
     
     message = [joke]
     response = CommandResponse(CommandResponse.CODE_OK, message);  
