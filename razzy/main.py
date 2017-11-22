@@ -8,10 +8,14 @@ ears = Ears()
 mouth = Mouth()
 lights = Lights()
 wheels = Wheels()
+radar = Radar()
 
 currentState = "listen";
 
 try:
+  radar.getDistance()
+  exit()
+  
   mouth.speak(["Hello, my name is Razzy"])
   while True:
     # Turn on light when listening
