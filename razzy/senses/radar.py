@@ -77,7 +77,7 @@ class Radar():
       print "Distance Measurement In Progress"
     
       self.settleSensor()
-      pulseStart = self.getStartTime()
+      pulseStart = self.getPulseStart()
       pulseEnd   = self.getPulseEnd();
       distance   = self.calculateDistance(pulseStart, pulseEnd)  
           
