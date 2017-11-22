@@ -59,7 +59,7 @@ class Radar():
   
   def getPulseEnd(self):
     while self.gpio.input(self.echo)==1:
-      pluseEnd = time.time()
+      pulseEnd = time.time()
       
     return pulseEnd
 
