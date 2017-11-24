@@ -52,12 +52,14 @@ class Radar():
     self.gpio.output(self.trig, False)
     
   def getPulseStart(self):
+    pulseStart = 0
     while self.gpio.input(self.echo)==0:
       pulseStart = time.time()
   
     return pulseStart
   
   def getPulseEnd(self):
+    pulseEnd = 0
     while self.gpio.input(self.echo)==1:
       pulseEnd = time.time()
       
