@@ -72,8 +72,12 @@ class Wheels():
   # Check if there is room to move
   #--------------------------------
   def checkIsClear(self):
-    isClear = False
+    isClear = True
+    distance = radar.getDistance()
     
+    if (distance < 20):
+      isClear = False
+      
     return isClear
     
   #-------------------------------
