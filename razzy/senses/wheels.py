@@ -90,7 +90,7 @@ class Wheels():
       for x in range(0, waitTime-1):
         # only check if moving forward
         if (left == self.servo_min and right == self.servo_max):
-          isClear = this.checkIsClear()
+          isClear = self.checkIsClear()
           
           # if we don't have room, stop moving
           if not isClear:
