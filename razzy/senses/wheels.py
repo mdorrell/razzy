@@ -76,7 +76,7 @@ class Wheels():
     r = radar.Radar()
     distance = r.getDistance()
     
-    if (distance < 20):
+    if (distance < 30):
       isClear = False
       
     return isClear
