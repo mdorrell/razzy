@@ -20,6 +20,7 @@ class HowFar(CommandBase):
   def getKeywords(self):
     keywords = []
     keywords.append(["how", "far", "front"])
+    keywords.append(["how", "far", "see"])
     return keywords
   
   def run(self, message):
