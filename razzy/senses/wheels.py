@@ -72,7 +72,7 @@ class Wheels():
   # Check if there is room to move
   #--------------------------------
   def checkIsClear(self):
-    isClear = false
+    isClear = False
     
     return isClear
     
