@@ -4,7 +4,7 @@ import time
 class Mouth():
     
   def speak(self, lines):
-    tts_engine = 'espeak -s120 '
+    tts_engine = 'espeak -s130 '
     for line in lines:
       print line
       os.system(tts_engine + ' "' + line + '"')

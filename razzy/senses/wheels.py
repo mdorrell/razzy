@@ -1,5 +1,6 @@
 from __future__ import division
 import time
+import senses.radar as radar
 
 class Wheels():
   # Default to no Pi
@@ -67,6 +68,14 @@ class Wheels():
     else:
       return False
   
+  #--------------------------------
+  # Check if there is room to move
+  #--------------------------------
+  def checkIsClear(self):
+    isClear = false
+    
+    return isClear
+    
   #-------------------------------
   # Toggle light on or off
   #-------------------------------
@@ -78,7 +87,17 @@ class Wheels():
       self.pwm.set_pwm(4, 0, right)
 
       # Let them run
-      time.sleep(waitTime)
+      for x in range(0, waitTime-1):
+        # only check if moving forward
+        if (left == self.servo_min and right == self.servo_max):
+          isClear = this.checkIsClear()
+          
+          # if we don't have room, stop moving
+          if not isClear:
+            print "Too close, stop moving"
+            break
+        
+        time.sleep(1)
   
       # Stop the wheels
       self.pwm.set_pwm(11, 0, 0);
