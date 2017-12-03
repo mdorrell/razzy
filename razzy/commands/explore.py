@@ -33,7 +33,7 @@ class Explore(CommandBase):
         print "not clear"
         isClear = self.doTurn()
         
-      loops = loops + 1
+      loops += 1
       
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  
@@ -54,8 +54,8 @@ class Explore(CommandBase):
     
     # turn left
     if (direction == 0):
-      isClear = self.wheels.left(2)
+      isClear = self.wheels.left(3)
     else:
-      isClear = self.wheels.right(2)
+      isClear = self.wheels.right(3)
 
     return isClear
