@@ -20,8 +20,8 @@ try:
     lights.blueLight(0);
     lights.greenLight(0);
 
-    message = ears.listen()
-    #message = "how far in front of you"
+    #message = ears.listen()
+    message = "go explore"
 
     lights.redLight(0);
     lights.blueLight(1);
