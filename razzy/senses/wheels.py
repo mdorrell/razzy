@@ -77,7 +77,15 @@ class Wheels():
     distance = r.getDistance()
     
     if (distance < 30):
-      isClear = False
+      #if we got 0 it might be an error try again
+      if (distance == 0):
+        distance = r.getDistance()
+
+        # must have been right
+        if (distance == 0):
+          isClear = False
+      else:
+        isClear = False
       
     return isClear
     
