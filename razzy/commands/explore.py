@@ -22,7 +22,7 @@ class Explore(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self):
+  def doContinue(self, message):
     self.run('')
     return True
     
