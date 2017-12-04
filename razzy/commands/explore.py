@@ -32,7 +32,7 @@ class Explore(CommandBase):
     isClear = True
     
     print "Move forward"
-    isClear = self.wheels.forward(1)      
+    isClear = self.wheels.forward(5)      
 
     if not isClear:
       print "not clear"

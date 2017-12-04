@@ -13,7 +13,7 @@ class ShutDown(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self):
+  def doContinue(self, message):
     return False
   
   def run(self, message):

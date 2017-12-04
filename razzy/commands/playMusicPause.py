@@ -25,7 +25,7 @@ class PlayMusicPause(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self):
+  def doContinue(self, message):
     return False
 
   #---------------------

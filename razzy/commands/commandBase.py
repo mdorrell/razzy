@@ -15,7 +15,7 @@ class CommandBase(object):
         return
     
     @abc.abstractmethod
-    def doContinue(self):
+    def doContinue(self, message):
         """Return boolean."""
         return
       
