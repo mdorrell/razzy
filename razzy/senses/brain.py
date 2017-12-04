@@ -38,9 +38,10 @@ class Brain():
       activeCommand = max(matches.iteritems(), key=operator.itemgetter(1))[0]
 
     # set last command
-    self.lastCommand = activeCommand
-    
-    # set current state 
-    self.setCurrentState(activeCommand)
+    if activeCommand:
+      self.lastCommand = activeCommand
+
+      # set current state 
+      self.setCurrentState(activeCommand)
     
     return activeCommand
