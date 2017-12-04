@@ -109,15 +109,14 @@ class Wheels():
         isClear = self.checkIsClear()
 
         # if we don't have room, stop moving
-#        if not isClear:
-#          print "Too close, stop moving"
-#          break
+        if not isClear:
+          # Stop the wheels
+          self.pwm.set_pwm(11, 0, 0);
+          self.pwm.set_pwm(4, 0, 0);
         
       #time.sleep(1)
   
-      # Stop the wheels
-#      self.pwm.set_pwm(11, 0, 0);
-#      self.pwm.set_pwm(4, 0, 0);
+
       
     return isClear
 
