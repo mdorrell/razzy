@@ -18,6 +18,12 @@ class Xclock(CommandBase):
     keywords.append(["what", "time"])
     return keywords          
     
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     time = datetime.strftime(datetime.now(), '%H:%M:%S')
     #message = ["The time is now " + time]

@@ -13,6 +13,12 @@ class Weather(CommandBase):
     keywords.append(["what", "weather"])
     return keywords     
     
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     data = self.getData()
     now       = self.filterMessage(data["forecast"]['txt_forecast']['forecastday'][0]['fcttext'])

@@ -6,7 +6,7 @@ import senses.wheels
 from commandBase import CommandBase
 from commandResponse import CommandResponse
 
-class MoveRightTurn(CommandBase):
+class Stop(CommandBase):
   
   # reference to wheels
   wheels = ''
@@ -14,7 +14,7 @@ class MoveRightTurn(CommandBase):
   @staticmethod
   def getKeywords(self):
     keywords = []
-    keywords.append(["turn", "right"])
+    keywords.append(["stop"])
     return keywords    
     
   #----------------------
@@ -24,9 +24,9 @@ class MoveRightTurn(CommandBase):
     return False
   
   def run(self, message):
-    print "Turn right"
+    print "Stop"
     self.loadWheels()
-    self.wheels.right(5)
+    self.wheels.stop()
     
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  

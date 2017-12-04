@@ -18,6 +18,12 @@ class MoveForward(CommandBase):
     keywords.append(["go", "forward"])
     return keywords
     
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     print "Move forward"
     self.loadWheels()

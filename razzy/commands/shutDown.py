@@ -10,6 +10,12 @@ class ShutDown(CommandBase):
     keywords.append(["sleep"])
     return keywords     
     
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     message = ["Good night"]
     response = CommandResponse(CommandResponse.CODE_EXIT, message);

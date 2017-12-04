@@ -17,6 +17,12 @@ class MoveLeftTurn(CommandBase):
     keywords.append(["turn", "left"])
     return keywords
     
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     print "Turn left"
     self.loadWheels()

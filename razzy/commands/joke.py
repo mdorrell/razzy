@@ -14,7 +14,12 @@ class Joke(CommandBase):
     keywords.append(["tell", "joke"])
     return keywords
   
-    
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     headers={'Accept': "application/json"}
     r = requests.get('https://icanhazdadjoke.com/', headers=headers)

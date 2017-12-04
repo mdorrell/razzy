@@ -14,6 +14,12 @@ class CommandBase(object):
         """Return array of array of keywords."""
         return
     
+    @abc.abstractmethod
+    def doContinue(self):
+        """Return boolean."""
+        return
+      
+    
     #--------------------------------------------------------
     #-- Used to get random responses
     #-- Define an array named "responses" in your subclass

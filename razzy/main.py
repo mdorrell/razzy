@@ -20,9 +20,15 @@ try:
     lights.blueLight(0);
     lights.greenLight(0);
 
-    message = ears.listen()
-    #message = "go explore"
+    #message = ears.listen()
+    message = "go explore"
 
+    # if message was empty, see if current state has a continue
+    if (message == ""):
+      currentState = brain.getCurrentState()
+      commandClass = globals()[currentState]
+      commandClass().doContinue(message)
+      
     lights.redLight(0);
     lights.blueLight(1);
 

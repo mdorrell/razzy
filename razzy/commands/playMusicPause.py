@@ -21,7 +21,13 @@ class PlayMusicPause(CommandBase):
     keywords = []
     keywords.append(["stop", "playing"])
     return keywords     
-    
+
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+
   #---------------------
   # Run the command
   #---------------------    

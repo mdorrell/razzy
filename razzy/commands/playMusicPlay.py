@@ -23,6 +23,12 @@ class PlayMusicPlay(CommandBase):
     keywords.append(["start", "music"])
     return keywords      
   
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   #---------------------
   # Run the command
   #---------------------    

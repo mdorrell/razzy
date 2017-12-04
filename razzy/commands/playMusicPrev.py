@@ -24,6 +24,12 @@ class PlayMusicPrev(CommandBase):
     keywords.append(["go", "back"])
     return keywords        
   
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   #---------------------
   # Run the command
   #---------------------    

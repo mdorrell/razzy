@@ -23,6 +23,12 @@ class HowFar(CommandBase):
     keywords.append(["how", "far", "see"])
     return keywords
   
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     print "How far in front of me"
     self.loadRadar()

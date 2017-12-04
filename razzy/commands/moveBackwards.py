@@ -18,6 +18,12 @@ class MoveBackwards(CommandBase):
     keywords.append(["go", "backwards"])
     return keywords
   
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    return False
+  
   def run(self, message):
     print "Move backwards"
     self.loadWheels()

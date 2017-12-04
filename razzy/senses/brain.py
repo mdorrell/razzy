@@ -21,8 +21,12 @@ class Brain():
   #---------------------------------
   def checkMessage(self, message):
     activeCommand = False;
+    
+    print "Current state " + self.getCurrentState()
+    
     matches = {}
     message_words = message.split()
+    
     for command in COMMANDS:
       for phrase in COMMANDS[command]:
         if (set(set(phrase)).issubset(message_words)):
@@ -35,5 +39,8 @@ class Brain():
 
     # set last command
     self.lastCommand = activeCommand
+    
+    # set current state 
+    self.setCurrentState(activeCommand)
     
     return activeCommand

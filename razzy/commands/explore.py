@@ -19,21 +19,25 @@ class Explore(CommandBase):
     keywords.append(["explore", "house"])
     return keywords
     
+  #----------------------
+  # doContinue
+  #----------------------
+  def doContinue(self):
+    self.run('')
+    return True
+    
   def run(self, message):
     print "Explore"
     self.loadWheels()
-    loops = 0
     isClear = True
     
-    while loops < 10:
-      if (isClear):
-        print "Move forward"
-        isClear = self.wheels.forward(5)      
-      else:
-        print "not clear"
-        isClear = self.doTurn()
+    print "Move forward"
+    isClear = self.wheels.forward(1)      
+
+    if not isClear:
+      print "not clear"
+      isClear = self.doTurn()
         
-      loops += 1
       
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  
