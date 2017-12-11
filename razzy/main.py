@@ -3,16 +3,22 @@ import sys
 import os
 from senses import *
 
-brain = Brain()
-ears = Ears()
-mouth = Mouth()
+# Get senses locally
+brain  = Brain()
+ears   = Ears()
+mouth  = Mouth()
 lights = Lights()
 wheels = Wheels()
+chat   = Chat()
 
 currentState = "listen";
 
+# train chat
+chat.init()
+
 try:
-  
+  #message = "go explore"
+
   mouth.speak(["Hello, my name is Razzy"])
   while True:
     # Turn on light when listening
@@ -21,10 +27,9 @@ try:
     lights.greenLight(0);
 
     message = ears.listen()
-    #message = "go explore"
 
     # if message was empty, see if current state has a continue
-    if (message == ""):
+    if (message == "" and currentState !='listen'):
       currentState = brain.getCurrentState()
       commandClass = globals()[currentState]
       commandClass().doContinue(message)
@@ -35,6 +40,8 @@ try:
     print "You said '" + message + "'"
     command = brain.checkMessage(message);
     print command
+
+    # if we have a command, run it
     if (command):
       # Turn off light when command is recieved
       lights.blueLight(0);
@@ -50,9 +57,13 @@ try:
       elif (response.code == CommandResponse.CODE_EXIT):
         mouth.speak(response.message)
       print "done command"
+    # otherwise default to chatting
     else:
-      mouth.speak([message])
+      reply = chat.reply(message)
+      mouth.speak([reply])
     print "keep looping"
+    
+    message = ''
 finally:
   lights.cleanup()
   wheels.stop()

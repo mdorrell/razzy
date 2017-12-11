@@ -23,6 +23,8 @@ class Explore(CommandBase):
   # doContinue
   #----------------------
   def doContinue(self, message):
+    print "continueing"
+    
     self.run('')
     return True
     
@@ -38,7 +40,6 @@ class Explore(CommandBase):
       print "not clear"
       isClear = self.doTurn()
         
-      
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  
     return response
