@@ -61,7 +61,7 @@ try:
     else:
       #reply = chat.reply(message)
       #mouth.speak([reply])
-      mouth.speak(command)
+      mouth.speak([command])
     print "keep looping"
     
     message = ''
