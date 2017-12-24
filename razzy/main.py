@@ -14,7 +14,7 @@ chat   = Chat()
 currentState = "listen";
 
 # train chat
-chat.init()
+#chat.init()
 
 try:
   #message = "go explore"
@@ -59,8 +59,9 @@ try:
       print "done command"
     # otherwise default to chatting
     else:
-      reply = chat.reply(message)
-      mouth.speak([reply])
+      #reply = chat.reply(message)
+      #mouth.speak([reply])
+      mouth.speak(command)
     print "keep looping"
     
     message = ''
