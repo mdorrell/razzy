@@ -17,7 +17,7 @@ currentState = "listen";
 #chat.init()
 
 try:
-  #message = "go explore"
+  #message = "move forward"
 
   mouth.speak(["Hello, my name is Razzy"])
   while True:
@@ -27,7 +27,9 @@ try:
     lights.greenLight(0);
 
     print "Listening"
-    message = ears.listen()
+    currentState = brain.getCurrentState()
+    listenTime   = ears.getPhraseTimeout(currentState)
+    message      = ears.listen(listenTime)
 
     print message
     

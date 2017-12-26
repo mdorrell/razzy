@@ -5,7 +5,7 @@ import senses.brain as brain
 class Ears():
   brain  = brain.Brain()
 
-  def listen(self):
+  def listen(self, listenTime):
     r = sr.Recognizer()
     message = ""
     
@@ -23,9 +23,8 @@ class Ears():
         # This is to write to a file
         #with open("microphone-results.wav", "wb") as f:
         #    f.write(audio.get_wav_data())
-        phraseTimeout = self.getPhraseTimeout()
         
-        audio = r.listen(source, timeout = 10, phrase_time_limit=phraseTimeout)
+        audio = r.listen(source, timeout = 10, phrase_time_limit=listenTime)
         message = r.recognize_google(audio)    
       except sr.WaitTimeoutError as e:
         print "Listen timeout"   
@@ -40,9 +39,7 @@ class Ears():
   #-------------------------------------
   # Get how long we listen for
   #-------------------------------------
-  def getPhraseTimeout(self):
-    # get the current state
-    currentState = self.brain.getCurrentState()
+  def getPhraseTimeout(self, currentState):
 
     # List of states where wheels are moving
     movementStates = [
