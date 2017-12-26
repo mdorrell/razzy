@@ -26,6 +26,7 @@ try:
     lights.blueLight(0);
     lights.greenLight(0);
 
+    print "Listening"
     message = ears.listen()
 
     # if message was empty, see if current state has a continue

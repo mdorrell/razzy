@@ -25,31 +25,31 @@ class Wheels():
   # Move forward
   #---------------------------
   def forward(self, time):
-    return self.moveWheels(self.servo_min, self.servo_max, time)
+    return self.moveWheels(self.servo_min, self.servo_max)
 
   #---------------------------
   # Move backwards
   #---------------------------
   def backwards(self, time):
-    return self.moveWheels(self.servo_max, self.servo_min, time)    
+    return self.moveWheels(self.servo_max, self.servo_min)    
 
   #---------------------------
   # Turn right
   #---------------------------
   def right(self, time):
-    return self.moveWheels(self.servo_max, self.servo_max, time) 
+    return self.moveWheels(self.servo_max, self.servo_max) 
   
   #---------------------------
   # Turn left
   #---------------------------
   def left(self, time):
-    return self.moveWheels(self.servo_min, self.servo_min, time) 
+    return self.moveWheels(self.servo_min, self.servo_min) 
   
   #---------------------------
   # Stop moving
   #---------------------------
   def stop(self):
-    self.moveWheels(0, 0, 0)
+    self.moveWheels(0, 0)
     
   #----------------------------------
   # stuff we need to do tp setup the pwm
@@ -93,7 +93,7 @@ class Wheels():
   # Toggle light on or off
   # @returns bool true if clear false if blocked
   #-------------------------------
-  def moveWheels(self, left, right, waitTime):   
+  def moveWheels(self, left, right):   
     isClear = True
     
     # if we have a Pi light it
@@ -115,8 +115,6 @@ class Wheels():
           self.pwm.set_pwm(4, 0, 0);
         
       #time.sleep(1)
-  
-
       
     return isClear
 
