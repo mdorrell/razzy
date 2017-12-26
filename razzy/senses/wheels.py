@@ -24,25 +24,25 @@ class Wheels():
   #---------------------------
   # Move forward
   #---------------------------
-  def forward(self, time):
+  def forward(self):
     return self.moveWheels(self.servo_min, self.servo_max)
 
   #---------------------------
   # Move backwards
   #---------------------------
-  def backwards(self, time):
+  def backwards(self):
     return self.moveWheels(self.servo_max, self.servo_min)    
 
   #---------------------------
   # Turn right
   #---------------------------
-  def right(self, time):
+  def right(self):
     return self.moveWheels(self.servo_max, self.servo_max) 
   
   #---------------------------
   # Turn left
   #---------------------------
-  def left(self, time):
+  def left(self):
     return self.moveWheels(self.servo_min, self.servo_min) 
   
   #---------------------------

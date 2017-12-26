@@ -27,7 +27,7 @@ class MoveBackwards(CommandBase):
   def run(self, message):
     print "Move backwards"
     self.loadWheels()
-    self.wheels.backwards(5)
+    self.wheels.backwards()
     
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  

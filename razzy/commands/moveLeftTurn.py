@@ -26,7 +26,7 @@ class MoveLeftTurn(CommandBase):
   def run(self, message):
     print "Turn left"
     self.loadWheels()
-    self.wheels.left(5)
+    self.wheels.left()
     
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  

@@ -27,7 +27,7 @@ class MoveForward(CommandBase):
   def run(self, message):
     print "Move forward"
     self.loadWheels()
-    self.wheels.forward(5)
+    self.wheels.forward()
     
     message = ''
     response = CommandResponse(CommandResponse.CODE_OK, message);  
