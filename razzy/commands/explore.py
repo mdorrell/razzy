@@ -23,7 +23,7 @@ class Explore(CommandBase):
   # doContinue
   #----------------------
   def doContinue(self, message):
-    print "continueing"
+    print "continuing"
     
     self.run('')
     return True
@@ -34,7 +34,7 @@ class Explore(CommandBase):
     isClear = True
     
     print "Move forward"
-    isClear = self.wheels.forward(5)      
+    isClear = self.wheels.forward()      
 
     if not isClear:
       print "not clear"
@@ -59,8 +59,12 @@ class Explore(CommandBase):
     
     # turn left
     if (direction == 0):
-      isClear = self.wheels.left(3)
+      isClear = self.wheels.left()
     else:
-      isClear = self.wheels.right(3)
+      isClear = self.wheels.right()
 
+    sleep(3)
+    
+    self.wheels.stop()
+    
     return isClear

@@ -29,6 +29,8 @@ try:
     print "Listening"
     message = ears.listen()
 
+    print message
+    
     # if message was empty, see if current state has a continue
     if (message == "" and currentState !='listen'):
       currentState = brain.getCurrentState()

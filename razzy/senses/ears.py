@@ -14,7 +14,7 @@ class Ears():
       r.energy_threshold      = 1000    # Higher number makes the mic less sensitive
 
       #r.adjust_for_ambient_noise(source)
-      audio = r.listen(source)
+      audio = r.listen(source, timeout=10)
 
     # This is to write to a file
     #with open("microphone-results.wav", "wb") as f:
