@@ -2,6 +2,7 @@ import abc
 import sys
 import os
 import random
+import time
 import senses.wheels
 
 from commandBase import CommandBase
@@ -63,7 +64,7 @@ class Explore(CommandBase):
     else:
       isClear = self.wheels.right()
 
-    sleep(3)
+    time.sleep(3)
     
     self.wheels.stop()
     
