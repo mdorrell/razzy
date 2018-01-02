@@ -7,10 +7,12 @@ class Spotify():
   root = os.path.dirname(sys.modules['__main__'].__file__) 
   spPath = root + '/../bin/sp'
   
-  #--------------------
-  # Constructor
-  #--------------------
-  def __init__(self):
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
+    
     # Make sure spotify is open
     self.openSpotify()
   

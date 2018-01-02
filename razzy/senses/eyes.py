@@ -19,11 +19,13 @@ class Eyes():
   picPath = root + '/../pics/'
   cam     = ''
   lights  = ''
-  
-  #--------------------
-  # Constructor
-  #--------------------
-  def __init__(self):
+      
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
+
     pygame.init()
     pygame.camera.init()
     self.cam = pygame.camera.Camera("/dev/video0",(352,288))

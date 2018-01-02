@@ -3,10 +3,16 @@ import time
 
 class Mouth():
     
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
+    
   def speak(self, lines):
     tts_engine = 'espeak -s130 '
     for line in lines:
-      print line
+      self.logger.info(line)
       os.system(tts_engine + ' "' + line + '"')
       time.sleep(.5)
     return

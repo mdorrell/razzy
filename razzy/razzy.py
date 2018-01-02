@@ -1,18 +1,12 @@
 import sys
 import os
+import logging
 from senses import *
 
 class Razzy():
-  
-  # Get senses locally
-  brain  = Brain()
-  ears   = Ears()
-  mouth  = Mouth()
-  lights = Lights()
-  wheels = Wheels()
-  chat   = Chat()
-  
-  currentState = '';
+    
+  currentState = ''
+  logger = ""
   
   def getBrain(self):
     return self.brain
@@ -31,6 +25,23 @@ class Razzy():
   
   def getChat(self):
     return self.chat
+
+  def getLogger(self):
+    return self.logger  
+  
+  """
+  Constructor
+  """
+  def __init__(self):
+    self.initLogger()
+    
+    # Get senses locally
+    self.brain  = Brain(self.logger)
+    self.ears   = Ears(self.logger)
+    self.mouth  = Mouth(self.logger)
+    self.lights = Lights(self.logger)
+    self.wheels = Wheels(self.logger)
+    self.chat   = Chat(self.logger)
   
   """
   Initializes razzy
@@ -38,10 +49,21 @@ class Razzy():
   def init(self):
     # train chat
     #chat.init()
-    
+
     self.currentState = "listen";
     self.getMouth().speak(["Hello, my name is Razzy"])
 
+  """
+  Initialize Logger
+  """
+  def initLogger(self):
+    self.logger = logging.getLogger(__name__)
+    out_hdlr = logging.StreamHandler(sys.stdout)
+    out_hdlr.setFormatter(logging.Formatter('%(asctime)s %(message)s'))
+    out_hdlr.setLevel(logging.INFO)
+    self.logger.addHandler(out_hdlr)
+    self.logger.setLevel(logging.INFO)
+    
   """
   Main function while razzy is running
   """

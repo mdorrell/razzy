@@ -6,6 +6,12 @@ class Brain():
   
   lastCommand = ""
   
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
+    
   def setCurrentState(self, state):
     self.currentState = state
 

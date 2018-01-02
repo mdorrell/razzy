@@ -1,10 +1,14 @@
 import speech_recognition as sr
 import pyaudio
-import senses.brain as brain
 
 class Ears():
-  brain  = brain.Brain()
-
+  
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
+    
   def listen(self, listenTime):
     r = sr.Recognizer()
     message = ""

@@ -13,10 +13,11 @@ class Wheels():
   # stores pwm reference
   pwm = '';
   
-  #--------------------
-  # Constructor
-  #--------------------
-  def __init__(self):
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
 
     # If we are using the Pi enable it
     self.hasPi = self.initPi()

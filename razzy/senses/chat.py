@@ -5,6 +5,15 @@ class Chat():
   #stores the chatterbot class
   chatterbot = ''
   
+  """
+  Constructor
+  """
+  def __init__(self, logger):
+    self.logger = logger
+    
+  """
+  Initialize chatbot
+  """
   def init(self):
     self.chatterbot = ChatBot("Razzy")
     self.chatterbot.set_trainer(ChatterBotCorpusTrainer)
