@@ -21,7 +21,7 @@ class MyTest(unittest.TestCase):
   def tearDownClass(self):
     print "all done"
     
-  def test_method1(self):
+  def test_init_speak(self):
     self.razzy.init()
     self.assertTrue(self.handler.matches(msg="Hello, my name is Razzy"))
     assert 1 == 1
