@@ -74,7 +74,7 @@ class Wheels():
   #--------------------------------
   def checkIsClear(self):
     isClear = True
-    r = radar.Radar()
+    r = radar.Radar(self.logger)
     distance = r.getDistance()
     
     if (distance < 30):
