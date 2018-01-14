@@ -74,7 +74,7 @@ class Razzy():
     # Get users command
     message = self.getMessage()
     
-    doContinue = False;
+    doContinue = True;
     
     # Check if we must run a continue command
     self.doContinue(message)
@@ -143,8 +143,12 @@ class Razzy():
 
     print "You said '" + message + "'"
     command = self.getBrain().checkMessage(message);
-    print "Command is " + command
     
+    if (command):
+      print "Command is " + command
+    else:
+      print "Command not recognized"
+      
     return command
     
   """
