@@ -23,12 +23,12 @@ class RunProgram(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
   def run(self, message, razzy):
     print "Running Run Program"
-    self.loadWheels(razzy.logger)
+    self.loadWheels(razzy.getLogger())
     
     razzy.getMouth().speak(["Running program 1"])
 

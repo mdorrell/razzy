@@ -20,12 +20,12 @@ class MoveRightTurn(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
+  def run(self, message, razzy):
     print "Turn right"
-    self.loadWheels()
+    self.loadWheels(razzy.getLogger())
     self.wheels.right()
     
     message = ''
@@ -35,5 +35,5 @@ class MoveRightTurn(CommandBase):
   #-------------------------
   # load wheels
   #-------------------------
-  def loadWheels(self):
-    self.wheels = senses.Wheels()
+  def loadWheels(self, logger):
+    self.wheels = senses.Wheels(logger)

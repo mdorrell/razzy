@@ -17,10 +17,10 @@ class Joke(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
+  def run(self, message, razzy):
     headers={'Accept': "application/json"}
     r = requests.get('https://icanhazdadjoke.com/', headers=headers)
     a = json.loads(r.text)

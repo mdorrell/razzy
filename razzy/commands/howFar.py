@@ -26,12 +26,12 @@ class HowFar(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
+  def run(self, message, razzy):
     print "How far in front of me"
-    self.loadRadar()
+    self.loadRadar(razzy.getLogger())
     distance = self.radar.getDistance()
     
     message = self.getResponse([distance])
@@ -41,5 +41,5 @@ class HowFar(CommandBase):
   #-------------------------
   # load radar
   #-------------------------
-  def loadRadar(self):
-    self.radar = senses.Radar()
+  def loadRadar(self, logger):
+    self.radar = senses.Radar(logger)

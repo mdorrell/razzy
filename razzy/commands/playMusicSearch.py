@@ -27,13 +27,13 @@ class PlayMusicSearch(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
   #---------------------
   # Run the command
   #---------------------    
-  def run(self, message):
+  def run(self, message, razzy):
     keyword = self.parseMessage(message)
     self.loadSpotify();
     self.spotify.search(keyword)

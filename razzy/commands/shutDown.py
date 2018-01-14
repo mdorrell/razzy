@@ -13,10 +13,10 @@ class ShutDown(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
+  def run(self, message, razzy):
     message = ["Good night"]
     response = CommandResponse(CommandResponse.CODE_EXIT, message);
     return response

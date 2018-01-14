@@ -23,15 +23,15 @@ class Explore(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     print "continuing"
     
     self.run('')
     return True
     
-  def run(self, message):
+  def run(self, message, razzy):
     print "Explore"
-    self.loadWheels()
+    self.loadWheels(razzy.getLogger())
     isClear = True
     
     print "Move forward"
@@ -48,8 +48,8 @@ class Explore(CommandBase):
   #-------------------------
   # load wheels
   #-------------------------
-  def loadWheels(self):
-    self.wheels = senses.Wheels()
+  def loadWheels(self, logger):
+    self.wheels = senses.Wheels(logger)
     
   #-------------------------
   # doTurn

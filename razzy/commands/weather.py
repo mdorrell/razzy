@@ -16,10 +16,10 @@ class Weather(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
+  def run(self, message, razzy):
     data = self.getData()
     now       = self.filterMessage(data["forecast"]['txt_forecast']['forecastday'][0]['fcttext'])
     laterName = data["forecast"]['txt_forecast']['forecastday'][1]['title']

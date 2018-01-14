@@ -22,11 +22,11 @@ class WhatDoYouSee(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
-    self.eyes = senses.Eyes()
+  def run(self, message, razzy):
+    self.eyes = senses.Eyes(razzy.getLogger())
     
     picPath = self.look()
     item    = self.identify(picPath)

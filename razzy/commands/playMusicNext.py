@@ -28,13 +28,13 @@ class PlayMusicNext(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
   #---------------------
   # Run the command
   #---------------------    
-  def run(self, message):
+  def run(self, message, razzy):
     self.loadSpotify();
     self.spotify.skip()
 

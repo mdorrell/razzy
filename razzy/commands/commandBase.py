@@ -5,7 +5,7 @@ class CommandBase(object):
     __metaclass__ = abc.ABCMeta
     
     @abc.abstractmethod
-    def run(self, message):
+    def run(self, message, razzy):
         """Retrieve data from the input source and return an object."""
         return
     
@@ -15,7 +15,7 @@ class CommandBase(object):
         return
     
     @abc.abstractmethod
-    def doContinue(self, message):
+    def doContinue(self, message, razzy):
         """Return boolean."""
         return
       

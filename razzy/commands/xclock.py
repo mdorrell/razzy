@@ -21,10 +21,10 @@ class Xclock(CommandBase):
   #----------------------
   # doContinue
   #----------------------
-  def doContinue(self, message):
+  def doContinue(self, message, razzy):
     return False
   
-  def run(self, message):
+  def run(self, message, razzy):
     time = datetime.strftime(datetime.now(), '%H:%M:%S')
     #message = ["The time is now " + time]
     message = self.getResponse([time])
