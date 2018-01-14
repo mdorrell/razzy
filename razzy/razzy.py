@@ -2,11 +2,13 @@ import sys
 import os
 import logging
 from senses import *
+from commands import CommandResponse
 
 class Razzy():
     
   currentState = ''
   logger = ""
+  commands = ""
   
   def getBrain(self):
     return self.brain
@@ -46,11 +48,12 @@ class Razzy():
   """
   Initializes razzy
   """
-  def init(self):
+  def init(self, commands):
     # train chat
     #chat.init()
 
-    self.currentState = "listen";
+    self.commands = commands
+    self.currentState = "listen"
     self.getMouth().speak(["Hello, my name is Razzy"])
 
   """
@@ -70,7 +73,9 @@ class Razzy():
   def run(self):
     # Get users command
     message = self.getMessage()
-
+    
+    doContinue = False;
+    
     # Check if we must run a continue command
     self.doContinue(message)
 
@@ -81,7 +86,7 @@ class Razzy():
     if (command):
       
       # run the command
-      self.processCommand(command)
+      self.processCommand(command, message)
 
     # If we don't have a command do default action
     else:
@@ -90,6 +95,8 @@ class Razzy():
     print "keep looping"
     
     message = ''
+    
+    return doContinue
   
   """
   Get message from user
@@ -121,7 +128,7 @@ class Razzy():
     # if message was empty, see if current state has a continue
     if (message == "" and self.currentState !='listen'):
       currentState = self.getBrain().getCurrentState()
-      commandClass = globals()[currentState]
+      commandClass = self.commands[currentState]
       commandClass().doContinue(message)
     
   """
@@ -136,20 +143,22 @@ class Razzy():
 
     print "You said '" + message + "'"
     command = self.getBrain().checkMessage(message);
-    print command
+    print "Command is " + command
+    
+    return command
     
   """
   Run the given command
   :param CommandBase command - Command we will run
   """
-  def processCommand(self, command):
+  def processCommand(self, command, message):
     # Green light when we run command
     self.getLights().blueLight(0);
     self.getLights().greenLight(1);
 
     # Look for class named "command" in the list of commands
-    commandClass = globals()[command]
-    response = commandClass().run(message)
+    commandClass = self.commands[command]
+    response = commandClass().run(message, self)
     
     # code 200 is speak and continue
     if (response.code == CommandResponse.CODE_OK):

@@ -8,12 +8,16 @@ import os
 razzy  = Razzy()
 
 try:
+  doContinue = True;
+
+  commands = globals()
+
   # Initialize razzy
-  razzy.init()
-  while True:
+  razzy.init(commands)
+  while doContinue:
     
     # Each loop listens for a command and processes it
-    razzy.run()
+    doContinue = razzy.run()
 
 finally:
   # Shutdown properly
