@@ -3,6 +3,7 @@ import io
 import os
 import time
 import senses.lights as lights
+import json
 
 import pygame
 from pygame.locals import *
@@ -11,14 +12,17 @@ import pygame.camera
 # Imports the Google Cloud client library
 from google.cloud import vision
 from google.cloud.vision import types
+import google.auth
+from google.oauth2 import service_account
 
 class Eyes():
 
   # path to sp
-  root    = os.path.dirname(sys.modules['__main__'].__file__) 
-  picPath = root + '/../pics/'
-  cam     = ''
-  lights  = ''
+  root     = os.path.dirname(sys.modules['__main__'].__file__) 
+  picPath  = root + '/../pics/'
+  credPath = root + '/../keys/google-cloud-key.json'
+  cam      = ''
+  lights   = ''
       
   """
   Constructor
@@ -29,7 +33,7 @@ class Eyes():
     pygame.init()
     pygame.camera.init()
     self.cam = pygame.camera.Camera("/dev/video0",(352,288))
-    self.lights = lights.Lights()
+    self.lights = lights.Lights(logger)
 
   #----------------------------------
   # Take a picture save it on disk
@@ -60,7 +64,8 @@ class Eyes():
   def identify(self, picPath):
 
     # Instantiates a client
-    client = vision.ImageAnnotatorClient()
+    creds = service_account.Credentials.from_service_account_file(self.credPath)
+    client = vision.ImageAnnotatorClient(credentials=creds)
 
     # Loads the image into memory
     with io.open(picPath, 'rb') as image_file:

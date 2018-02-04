@@ -35,7 +35,7 @@ class PlayMusicSearch(CommandBase):
   #---------------------    
   def run(self, message, razzy):
     keyword = self.parseMessage(message)
-    self.loadSpotify();
+    self.loadSpotify(razzy.getLogger());
     self.spotify.search(keyword)
     
     message = self.getResponse([keyword])
@@ -55,5 +55,5 @@ class PlayMusicSearch(CommandBase):
   #-------------------------
   # load spotify
   #-------------------------
-  def loadSpotify(self):
-    self.spotify = senses.Spotify()
+  def loadSpotify(self, logger):
+    self.spotify = senses.Spotify(logger)
