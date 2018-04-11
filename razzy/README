@@ -6,3 +6,9 @@ sudo pip install --upgrade pyaudio
 sudo pip install pygame
 sudo pip install google-cloud
 sudo apt-get install espeak
+
+# To run tests we need
+sudo pip install pytest
+sudo pip install nose2
+
+Then run "nose2" in the ./razzy/razzy/ directory
