@@ -6,6 +6,7 @@ import logging
 
 from matcher import Matcher
 from testHandler import TestHandler
+from mock_mouth import MockMouth
 
 from ..razzy import Razzy
 
@@ -17,6 +18,8 @@ class MyTest(unittest.TestCase):
     self.handler = TestHandler(Matcher())
     self.razzy = Razzy()
     self.razzy.getLogger().addHandler(self.handler)
+    self.razzy.mouth = MockMouth(self.razzy.getLogger())
+
 
   @classmethod
   def tearDownClass(self):
