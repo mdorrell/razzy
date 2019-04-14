@@ -27,8 +27,9 @@ class Joke(CommandBase):
 
     # Assume the value object has proper __unicode__() method
     joke = a['joke']
-    joke = unicodedata.normalize('NFKD', joke).encode('ascii','ignore')
-    
+    joke = unicodedata.normalize('NFKD', joke).encode('ascii', 'ignore')
+    joke = joke.decode("utf-8")
+
     message = [joke]
     response = CommandResponse(CommandResponse.CODE_OK, message);  
     return response
