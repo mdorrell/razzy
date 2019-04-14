@@ -41,7 +41,7 @@ class Brain():
 
     # get command with highest number of words matched
     if matches:   
-      activeCommand = max(matches.iteritems(), key=operator.itemgetter(1))[0]
+      activeCommand = max(matches.items(), key=operator.itemgetter(1))[0]
 
     # set last command
     if activeCommand:

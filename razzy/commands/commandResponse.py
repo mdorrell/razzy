@@ -19,5 +19,5 @@ class CommandResponse():
     return self.__message
 
   @message.setter
-  def code(self, val):
+  def message(self, val):
     self.__message = val
