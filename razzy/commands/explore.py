@@ -24,21 +24,21 @@ class Explore(CommandBase):
   # doContinue
   #----------------------
   def doContinue(self, message, razzy):
-    print "continuing"
+    print("continuing")
     
     self.run('')
     return True
     
   def run(self, message, razzy):
-    print "Explore"
+    print("Explore")
     self.loadWheels(razzy.getLogger())
     isClear = True
     
-    print "Move forward"
+    print("Move forward")
     isClear = self.wheels.forward()      
 
     if not isClear:
-      print "not clear"
+      print("not clear")
       isClear = self.doTurn()
         
     message = ''

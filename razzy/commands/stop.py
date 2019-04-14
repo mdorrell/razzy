@@ -24,7 +24,7 @@ class Stop(CommandBase):
     return False
   
   def run(self, message, razzy):
-    print "Stop"
+    print("Stop")
     self.loadWheels(razzy.getLogger())
     self.wheels.stop()
     

@@ -25,7 +25,7 @@ class MoveForward(CommandBase):
     return False
   
   def run(self, message, razzy):
-    print "Move forward"
+    print("Move forward")
     self.loadWheels(razzy.getLogger())
     self.wheels.forward()
     

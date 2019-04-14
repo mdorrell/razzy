@@ -28,7 +28,7 @@ class Brain():
   def checkMessage(self, message):
     activeCommand = False;
     
-    print "Current state " + self.getCurrentState()
+    print("Current state {}".format(self.getCurrentState()))
     
     matches = {}
     message_words = message.split()

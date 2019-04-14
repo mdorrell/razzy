@@ -24,6 +24,6 @@ class Chat():
     # Get a response to the input text 'How are you?'
     response = self.chatterbot.get_response(message)
 
-    print(response)
+    print("{}".format(response))
     return str(response)
     

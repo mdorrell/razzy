@@ -6,7 +6,8 @@ setup (
        packages=find_packages(),
 
        # Declare your packages' dependencies here, for eg:
-       install_requires=['SpeechRecognition', 'pyaudio', 'selenium'],
+       install_requires=['SpeechRecognition', 'pyaudio', 'selenium', 'chatterbot'],
+       # pip install chatterbot
 
        # Fill in these to make your Egg ready for upload to
        # PyPI

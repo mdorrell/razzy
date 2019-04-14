@@ -92,7 +92,7 @@ class Razzy():
     else:
       self.doDefaultAction(message)
 
-    print "keep looping"
+    print("keep looping")
 
     message = ''
 
@@ -109,12 +109,12 @@ class Razzy():
     self.getLights().blueLight(0);
     self.getLights().greenLight(0);
 
-    print "Listening"
+    print("Listening")
     currentState = self.getBrain().getCurrentState()
     listenTime   = self.getEars().getPhraseTimeout(currentState)
     message      = self.getEars().listen(listenTime)
 
-    print message
+    print(message)
 
     return message
 
@@ -138,16 +138,16 @@ class Razzy():
   def getCommand(self, message):
 
     # Blue light when processing command
-    self.getLights().redLight(0);
-    self.getLights().blueLight(1);
+    self.getLights().redLight(0)
+    self.getLights().blueLight(1)
 
-    print "You said '" + message + "'"
-    command = self.getBrain().checkMessage(message);
+    print("You said '{}'".format(message))
+    command = self.getBrain().checkMessage(message)
 
     if (command):
-      print "Command is " + command
+      print("Command is {}".format(command))
     else:
-      print "Command not recognized"
+      print("Command not recognized")
 
     return command
 
@@ -157,8 +157,8 @@ class Razzy():
   """
   def processCommand(self, command, message):
     # Green light when we run command
-    self.getLights().blueLight(0);
-    self.getLights().greenLight(1);
+    self.getLights().blueLight(0)
+    self.getLights().greenLight(1)
 
     # Look for class named "command" in the list of commands
     commandClass = self.commands[command]
@@ -173,7 +173,7 @@ class Razzy():
       self.shutdown()
       exit()
 
-    print "done command"
+    print("done command")
 
   """
   Do what we do when we don't have a command for the message

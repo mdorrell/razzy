@@ -31,7 +31,7 @@ class Ears():
         audio = r.listen(source, timeout = 10, phrase_time_limit=listenTime)
         message = r.recognize_google(audio)    
       except sr.WaitTimeoutError as e:
-        print "Listen timeout"   
+        print("Listen timeout")
         message = ""
       except sr.UnknownValueError:     
         message = ""

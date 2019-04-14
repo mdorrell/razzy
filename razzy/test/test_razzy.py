@@ -23,7 +23,7 @@ class MyTest(unittest.TestCase):
 
   @classmethod
   def tearDownClass(self):
-    print "all done"
+    print("all done")
 
   def test_init_speak(self):
     self.razzy.init(self)

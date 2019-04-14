@@ -27,7 +27,7 @@ class RunProgram(CommandBase):
     return False
   
   def run(self, message, razzy):
-    print "Running Run Program"
+    print("Running Run Program")
     self.loadWheels(razzy.getLogger())
     
     razzy.getMouth().speak(["Running program 1"])
@@ -49,7 +49,7 @@ class RunProgram(CommandBase):
     scriptDir = os.path.dirname(__file__) #<-- absolute dir the script is in
     programPath = "../programs/program1.txt"
     fullPath = os.path.join(scriptDir, programPath)
-    print fullPath
+    print(fullPath)
     
     with open(fullPath) as f:
       program = f.readlines()
@@ -67,7 +67,7 @@ class RunProgram(CommandBase):
       direction = command[0]
       duration  = command[1]
       
-      print "running command " + direction + " " + duration
+      print("running command {} {}".format(direction, duration))
       
       # Move in the right direction
       if (direction == 'F'):

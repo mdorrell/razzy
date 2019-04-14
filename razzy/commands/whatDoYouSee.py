@@ -57,8 +57,8 @@ class WhatDoYouSee(CommandBase):
     description = ''
     for label in labels:
         
-        print label.description
-        print label.score
+        print("{}".format(label.description))
+        print("{}".format(label.score))
         if label.description not in ignore:
           if label.score > .5:
             description = description + ', ' + label.description

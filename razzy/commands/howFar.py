@@ -30,7 +30,7 @@ class HowFar(CommandBase):
     return False
   
   def run(self, message, razzy):
-    print "How far in front of me"
+    print("How far in front of me")
     self.loadRadar(razzy.getLogger())
     distance = self.radar.getDistance()
     

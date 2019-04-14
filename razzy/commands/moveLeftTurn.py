@@ -24,7 +24,7 @@ class MoveLeftTurn(CommandBase):
     return False
   
   def run(self, message, razzy):
-    print "Turn left"
+    print("Turn left")
     self.loadWheels(razzy.getLogger())
     self.wheels.left()
     

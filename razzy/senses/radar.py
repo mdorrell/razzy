@@ -77,7 +77,7 @@ class Radar():
   def getDistance(self):
   
     if (self.hasPi): 
-      print "Distance Measurement In Progress"
+      print("Distance Measurement In Progress")
     
       self.settleSensor()
       pulseStart = self.getPulseStart()
@@ -85,9 +85,9 @@ class Radar():
       distance   = self.calculateDistance(pulseStart, pulseEnd)  
           
     else:
-      print "Pi not found"
+      print("Pi not found")
       distance = 0
       
-    print "Distance:",distance,"cm"
+    print("Distance: {} cm".format(distance))
     return distance
     

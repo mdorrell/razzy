@@ -70,9 +70,9 @@ class Lights():
   def toggleLight(self, name, light, isOn):
     # print status
     if (isOn):
-      print name + " light is On"
+      print("{} light is On".format(name))
     else:
-      print name + " light is Off"
+      print("{} light is Off".format(name))
     
     # if we have a Pi light it
     if (self.hasPi):  
