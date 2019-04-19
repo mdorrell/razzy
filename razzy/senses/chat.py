@@ -15,6 +15,7 @@ class Chat():
   Initialize chatbot
   """
   def init(self):
+    print("Init chat")
     # self.chatterbot = ChatBot("Razzy")
     # self.chatterbot.set_trainer(ChatterBotCorpusTrainer)
 
