@@ -22,17 +22,23 @@ class MoveForward(CommandBase):
   # doContinue
   #----------------------
   def doContinue(self, message, razzy):
+    self.loadWheels(razzy.getLogger())
+    isClear = self.wheels.checkIsClear(self)
+
+    if not isClear:
+      self.wheels.stop()
+
     return False
   
   def run(self, message, razzy):
     print("Move forward")
     self.loadWheels(razzy.getLogger())
-    canMove = self.wheels.forward()
+    isClear = self.wheels.forward()
 
-    if (canMove):
+    if (isClear):
       message = ''
     else:
-      message = 'Something is in my way'
+      message = ['Something is in my way']
 
     response = CommandResponse(CommandResponse.CODE_OK, message);
 
