@@ -14,8 +14,8 @@ Run these commands when installing
 - sudo pip3 install --upgrade pyaudio
 - sudo pip3 install pygame
 - sudo pip3 install google-cloud
-- pip3 install --upgrade google-cloud-speech
-- pip3 install google-cloud-vision
+- sudo pip3 install --upgrade google-cloud-speech
+- sudo pip3 install google-cloud-vision
 - sudo apt-get install espeak
 
 # To run tests we need
