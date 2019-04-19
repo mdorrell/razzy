@@ -27,10 +27,15 @@ class MoveForward(CommandBase):
   def run(self, message, razzy):
     print("Move forward")
     self.loadWheels(razzy.getLogger())
-    self.wheels.forward()
-    
-    message = ''
-    response = CommandResponse(CommandResponse.CODE_OK, message);  
+    canMove = self.wheels.forward()
+
+    if (canMove):
+      message = ''
+    else:
+      message = 'Something is in my way'
+
+    response = CommandResponse(CommandResponse.CODE_OK, message);
+
     return response
   
   #-------------------------
