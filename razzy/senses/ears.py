@@ -15,13 +15,13 @@ class Ears():
     
     #Microphone(device_index=i, sample_rate=48000)
     with sr.Microphone( sample_rate=48000) as source:
-      r.pause_threshold       = 0.5     # seconds of non-speaking audio before a phrase is considered complete
+      r.pause_threshold       = 0.25     # seconds of non-speaking audio before a phrase is considered complete
       r.phrase_threshold      = 0.5     # minimum seconds of speaking audio before we consider the speaking audio a phrase 
-      r.non_speaking_duration = 0.5     # seconds of non-speaking audio to keep on both sides of the recording
+      r.non_speaking_duration = 0.25     # seconds of non-speaking audio to keep on both sides of the recording
       r.energy_threshold      = 1000    # Higher number makes the mic less sensitive
       r.dynamic_energy_threshold = False
       
-      #r.adjust_for_ambient_noise(source)
+      r.adjust_for_ambient_noise(source)
       try:
         
         # This is to write to a file
