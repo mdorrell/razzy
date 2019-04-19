@@ -85,8 +85,12 @@ class Razzy():
     # If we have a command, run it
     if (command):
 
-      # run the command
-      self.processCommand(command, message)
+      try:
+        # run the command
+        self.processCommand(command, message)
+      except Exception:
+        print("EXCEPTION: ", sys.exc_info())
+        self.getMouth().speak(["I'm afraid I can't do that"])
 
     # If we don't have a command do default action
     else:
