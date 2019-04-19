@@ -6,7 +6,6 @@ from commands import CommandResponse
 
 class Razzy():
 
-  currentState = ''
   logger = ""
   commands = ""
 
@@ -53,7 +52,6 @@ class Razzy():
     #chat.init()
 
     self.commands = commands
-    self.currentState = "listen"
     self.getMouth().speak(["Hello, my name is Razzy"])
 
   """
@@ -128,12 +126,13 @@ class Razzy():
   :param string message - What the user said
   """
   def doContinue(self, message):
+    currentState = self.getBrain().getCurrentState()
 
     # if message was empty, see if current state has a continue
-    if (message == "" and self.currentState !='listen'):
-      currentState = self.getBrain().getCurrentState()
+    if message == "" and currentState != 'listen':
       commandClass = self.commands[currentState]
-      commandClass().doContinue(message)
+      print("Command Class = {}".format(commandClass))
+      commandClass().doContinue(message, self)
 
   """
   Get command from message if we have one
