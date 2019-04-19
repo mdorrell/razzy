@@ -26,7 +26,7 @@ class Razzy():
     return self.wheels
 
   def getChat(self):
-    return self.chat
+    return 0 #self.chat
 
   def getLogger(self):
     return self.logger
@@ -43,7 +43,7 @@ class Razzy():
     self.mouth  = Mouth(self.logger)
     self.lights = Lights(self.logger)
     self.wheels = Wheels(self.logger)
-    self.chat   = Chat(self.logger)
+    #self.chat   = Chat(self.logger)
 
   """
   Initializes razzy
