@@ -42,14 +42,15 @@ class Razzy():
     self.mouth  = Mouth(self.logger)
     self.lights = Lights(self.logger)
     self.wheels = Wheels(self.logger)
-    self.chat   = Chat(self.logger)
+    #self.chat   = Chat(self.logger)
+    self.chat   = ChatEcho(self.logger)
 
   """
   Initializes razzy
   """
   def init(self, commands):
     # train chat
-    #chat.init()
+    self.chat.init()
 
     self.commands = commands
     self.getMouth().speak(["Hello, my name is Razzy"])
@@ -183,8 +184,7 @@ class Razzy():
   :param string message - What the user said
   """
   def doDefaultAction(self, message):
-    #reply = chat.reply(message)
-    #mouth.speak([reply])
+    message = self.chat.reply(message)
     self.getMouth().speak([message])
 
   """
