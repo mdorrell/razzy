@@ -1,5 +1,5 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+#from chatterbot import ChatBot
+#from chatterbot.trainers import ChatterBotCorpusTrainer
 
 class Chat():
   #stores the chatterbot class
