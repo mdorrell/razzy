@@ -18,6 +18,7 @@ Run these commands when installing
 - sudo pip3 install google-cloud-vision
 - sudo apt-get install espeak
 - sudo pip3 install adafruit-pca9685
+- sudo pip3 install wikipedia
 
 # To run tests we need
 - sudo pip3 install pytest
