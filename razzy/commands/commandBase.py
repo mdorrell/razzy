@@ -18,7 +18,10 @@ class CommandBase(object):
     def doContinue(self, message, razzy):
         """Return boolean."""
         return
-      
+
+    def doContinueCommand(self):
+        """Return boolean when the command will continue"""
+        return False
     
     #--------------------------------------------------------
     #-- Used to get random responses

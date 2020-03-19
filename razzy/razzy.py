@@ -53,6 +53,7 @@ class Razzy():
     self.chat.init()
 
     self.commands = commands
+
     self.getMouth().speak(["Hello, my name is Razzy"])
 
   """
@@ -78,8 +79,11 @@ class Razzy():
     # Check if we must run a continue command
     self.doContinue(message)
 
-    # Check if we have a command for the message
-    command = self.getCommand(message)
+    if (self.doContinueCommand()):
+      command = self.getBrain().getCurrentState()
+    else:
+      # Check if we have a command for the message
+      command = self.getCommand(message)
 
     # If we have a command, run it
     if (command):
@@ -132,8 +136,19 @@ class Razzy():
     # if message was empty, see if current state has a continue
     if message == "" and currentState != 'listen':
       commandClass = self.commands[currentState]
-      print("Command Class = {}".format(commandClass))
-      commandClass().doContinue(message, self)
+      return commandClass().doContinue(message, self)
+
+  """
+  See if we will continue current command
+  :returns boolean
+  """
+  def doContinueCommand(self):
+    currentState = self.getBrain().getCurrentState()
+
+    # If current state has a doContinueCommand
+    if currentState != 'listen':
+      commandClass = self.commands[currentState]
+      return commandClass().doContinueCommand()
 
   """
   Get command from message if we have one
