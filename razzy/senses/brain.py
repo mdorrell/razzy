@@ -5,7 +5,9 @@ class Brain():
   currentState = "listen"
   
   lastCommand = ""
-  
+
+  memory = {}
+
   """
   Constructor
   """
@@ -51,3 +53,23 @@ class Brain():
       self.setCurrentState(activeCommand)
     
     return activeCommand
+
+  #--------------------------------
+  # Save something to memory for later
+  # @param string key
+  # @param mixed value
+  #--------------------------------
+  def setMemory(self, key, value):
+    self.memory[key] = value
+
+  # --------------------------------
+  # Return something save in memory
+  # @param string key
+  # @param mixed value
+  # --------------------------------
+  def getMemory(self, key):
+    if key in self.memory.keys():
+      value = self.memory[key]
+    else:
+      value = ''
+    return value
