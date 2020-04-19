@@ -45,13 +45,6 @@ class TeachSpelling(CommandBase):
         return True
 
     # ----------------------
-    # doContinueCommand
-    # ----------------------
-    def doContinueCommand(self):
-        """Return boolean when the command will continue"""
-        return True
-
-    # ----------------------
     # Run command
     # ----------------------
     def run(self, message, razzy):

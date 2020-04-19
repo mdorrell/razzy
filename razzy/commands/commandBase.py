@@ -16,12 +16,8 @@ class CommandBase(object):
     
     @abc.abstractmethod
     def doContinue(self, message, razzy):
-        """Return boolean."""
-        return
-
-    def doContinueCommand(self):
         """Return boolean when the command will continue"""
-        return False
+        return
     
     #--------------------------------------------------------
     #-- Used to get random responses

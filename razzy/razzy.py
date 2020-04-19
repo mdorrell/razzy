@@ -76,10 +76,8 @@ class Razzy():
 
     doContinue = True;
 
-    # Check if we must run a continue command
-    self.doContinue(message)
-
-    if (self.doContinueCommand()):
+    # check if we will repeat the same command
+    if self.doContinue(message):
       command = self.getBrain().getCurrentState()
     else:
       # Check if we have a command for the message
@@ -134,21 +132,9 @@ class Razzy():
     currentState = self.getBrain().getCurrentState()
 
     # if message was empty, see if current state has a continue
-    if message == "" and currentState != 'listen':
-      commandClass = self.commands[currentState]
-      return commandClass().doContinue(message, self)
-
-  """
-  See if we will continue current command
-  :returns boolean
-  """
-  def doContinueCommand(self):
-    currentState = self.getBrain().getCurrentState()
-
-    # If current state has a doContinueCommand
     if currentState != 'listen':
       commandClass = self.commands[currentState]
-      return commandClass().doContinueCommand()
+      return commandClass().doContinue(message, self)
 
   """
   Get command from message if we have one

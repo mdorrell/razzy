@@ -22,6 +22,8 @@ class MoveForward(CommandBase):
   # doContinue
   #----------------------
   def doContinue(self, message, razzy):
+    print("do continue")
+
     # Check if its clear, and if not we must stop
     self.loadWheels(razzy.getLogger())
     isClear = self.wheels.checkIsClear()
@@ -30,7 +32,11 @@ class MoveForward(CommandBase):
       self.wheels.stop()
 
     return False
-  
+
+
+  #----------------------
+  # run
+  #----------------------
   def run(self, message, razzy):
     print("Move forward")
     self.loadWheels(razzy.getLogger())
