@@ -27,7 +27,8 @@ class Ears():
         # This is to write to a file
         #with open("microphone-results.wav", "wb") as f:
         #    f.write(audio.get_wav_data())
-        
+
+        print("listening for " + str(listenTime))
         audio = r.listen(source, timeout = 10, phrase_time_limit=listenTime)
         message = r.recognize_google(audio)    
       except sr.WaitTimeoutError as e:
@@ -39,7 +40,7 @@ class Ears():
         message = ""
 
     return message
-  
+
   #-------------------------------------
   # Get how long we listen for
   #-------------------------------------
@@ -55,7 +56,7 @@ class Ears():
     
     # Movement states are loud, so wait less time
     if currentState in movementStates:
-      phraseTimeout = 2
+      phraseTimeout = 1
     else:
       phraseTimeout = 10
       

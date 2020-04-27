@@ -72,8 +72,8 @@ class Razzy():
   """
   def run(self):
     # Get users command
-    message = self.getMessage()
-
+    #message = self.getMessage()
+    message = ''
     doContinue = True;
 
     # check if we will repeat the same command
