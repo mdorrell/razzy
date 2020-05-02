@@ -38,8 +38,8 @@ class Razzy():
 
     # Get senses locally
     self.brain  = Brain(self.logger)
-    self.ears   = Ears(self.logger)
-    self.mouth  = Mouth(self.logger)
+    self.ears   = Ears(self.logger, self.brain)
+    self.mouth  = Mouth(self.logger, self.ears)
     self.lights = Lights(self.logger)
     self.wheels = Wheels(self.logger)
     #self.chat   = Chat(self.logger)
@@ -55,6 +55,8 @@ class Razzy():
     self.commands = commands
 
     self.getMouth().speak(["Hello, my name is Razzy"])
+
+    self.getEars().listenInBackground()
 
   """
   Initialize Logger
@@ -73,7 +75,7 @@ class Razzy():
   def run(self):
     # Get users command
     #message = self.getMessage()
-    message = ''
+    message = self.ears.hearLastCommand()
     doContinue = True;
 
     # check if we will repeat the same command
@@ -97,8 +99,6 @@ class Razzy():
     else:
       self.doDefaultAction(message)
 
-    print("keep looping")
-
     message = ''
 
     return doContinue
@@ -114,7 +114,6 @@ class Razzy():
     self.getLights().blueLight(0);
     self.getLights().greenLight(0);
 
-    print("Listening")
     currentState = self.getBrain().getCurrentState()
     listenTime   = self.getEars().getPhraseTimeout(currentState)
     message      = self.getEars().listen(listenTime)
@@ -177,8 +176,6 @@ class Razzy():
       self.getMouth().speak(response.message)
       self.shutdown()
       exit()
-
-    print("done command")
 
   """
   Do what we do when we don't have a command for the message
