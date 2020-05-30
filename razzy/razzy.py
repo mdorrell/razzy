@@ -76,7 +76,7 @@ class Razzy():
     # Get users command
     #message = self.getMessage()
     message = self.ears.hearLastCommand()
-    doContinue = True;
+    doShutdown = False;
 
     # check if we will repeat the same command
     if self.doContinue(message):
@@ -101,7 +101,7 @@ class Razzy():
 
     message = ''
 
-    return doContinue
+    return doShutdown
 
   """
   Get message from user

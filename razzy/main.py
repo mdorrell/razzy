@@ -34,16 +34,16 @@ razzy  = Razzy()
 
 
 try:
-  doContinue = True;
+  doShutdown = False;
 
   commands = globals()
 
   # Initialize razzy
   razzy.init(commands)
-  while doContinue:
+  while not doShutdown:
     
     # Each loop listens for a command and processes it
-    doContinue = razzy.run()
+    doShutdown = razzy.run()
 
     # wait for next loop
     time.sleep(1)
