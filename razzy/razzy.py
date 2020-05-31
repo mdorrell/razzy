@@ -56,8 +56,6 @@ class Razzy():
 
     self.getMouth().speak(["Hello, my name is Razzy"])
 
-    self.getEars().listenInBackground()
-
   """
   Initialize Logger
   """
@@ -100,7 +98,6 @@ class Razzy():
       self.doDefaultAction(message)
 
     message = ''
-
     return doShutdown
 
   """
@@ -145,7 +142,7 @@ class Razzy():
     self.getLights().redLight(0)
     self.getLights().blueLight(1)
 
-    print("You said '{}'".format(message))
+    print("Parsing message '{}'".format(message))
     command = self.getBrain().checkMessage(message)
 
     if (command):
