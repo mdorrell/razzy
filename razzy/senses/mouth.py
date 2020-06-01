@@ -12,7 +12,8 @@ class Mouth():
     
   def speak(self, lines):
 
-    if (lines[0]):
+    # make sure they said something before parsing it
+    if (lines and lines[0]):
       self.ears.stopListening()
 
       tts_engine = 'espeak -s150 --stdout '

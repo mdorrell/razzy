@@ -1,6 +1,6 @@
 import unicodedata
 import random
-
+import time
 from commandBase import CommandBase
 from commandResponse import CommandResponse
 
@@ -58,18 +58,22 @@ class TeachSpelling(CommandBase):
 
             # clean up message to make it match more
             message = message.replace(" ", "").lower()
-
-            # if they are correct
-            if (message == currentWord):
-                message = ["Yes, you are correct"]
+            print(message)
+            # if they haven't answered yet
+            if not message:
+                print("sleeping")
+            # if they have answered check if the message is correct
             else:
-                message = ["No, you are wrong."]
-                correctSpelling = self.getCorrectSpelling(currentWord)
-                print("Correct = " + correctSpelling)
-                message.append("The correct way to spell " + currentWord + " is " + correctSpelling)
+                if (message == currentWord):
+                    message = ["Yes, you are correct"]
+                else:
+                    message = ["No, you are wrong."]
+                    correctSpelling = self.getCorrectSpelling(currentWord)
+                    print("Correct = " + correctSpelling)
+                    message.append("The correct way to spell " + currentWord + " is " + correctSpelling)
 
-            currentWord = self.getRandomWord(brain)
-            message.append("How do you spell " + currentWord)
+                currentWord = self.getRandomWord(brain)
+                message.append("How do you spell " + currentWord)
 
         # otherwise ask a new word
         else:

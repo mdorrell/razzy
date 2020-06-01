@@ -1,5 +1,6 @@
 import sys
 import os
+import traceback
 import logging
 from senses import *
 from commands import CommandResponse
@@ -90,7 +91,8 @@ class Razzy():
         # run the command
         self.processCommand(command, message)
       except Exception:
-        print("EXCEPTION: ", sys.exc_info())
+        print("EXCEPTION: ")
+        traceback.print_exc()
         self.getMouth().speak(["I'm afraid I can't do that"])
 
     # If we don't have a command do default action
