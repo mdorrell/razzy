@@ -55,6 +55,21 @@ class Brain():
     return activeCommand
 
   #--------------------------------
+  # Check is message contains the words in word_list
+  # @param string message
+  # @param array work_list
+  #--------------------------------
+  def isMessageListMatch(self, message, word_lists):
+    isMatch = False
+    message_words = message.split()
+    for word_list in word_lists:
+      if set(word_list).issubset(message_words):
+        isMatch = True
+        break
+
+    return isMatch
+
+  #--------------------------------
   # Save something to memory for later
   # @param string key
   # @param mixed value

@@ -18,23 +18,68 @@ class Explain(CommandBase):
         keywords.append(["what", "is"])
         return keywords
 
-
     # ----------------------
     # doContinue
     # ----------------------
     def doContinue(self, message, razzy):
-        return False
+        brain = razzy.getBrain()
+        word_lists = []
+        word_lists.append(["tell", "me", "more"])
+        word_lists.append(["go", "on"])
+        word_lists.append(["what", "else"])
+        isMatch = brain.isMessageListMatch(message, word_lists)
 
+        if isMatch:
+            brain.setMemory("explain_continue", True)
+
+        return isMatch
+
+    # ----------------------
+    # run
+    # ----------------------
     def run(self, message, razzy):
+        brain = razzy.getBrain()
+        isContinue = brain.getMemory("explain_continue")
+        if isContinue:
+            message = brain.getMemory("explain_message")
+            numSentences = brain.getMemory("explain_message_sentences") * 2
+            removeLength = brain.getMemory("explain_message_len")
+            brain.setMemory("explain_continue", False)
+        else:
+            numSentences = 2
+            removeLength = 0
+
         search = self.sanitizeSearch(message)
 
-        response = wikipedia.summary(search, sentences=2)
-        response = unicodedata.normalize('NFKD', response).encode('ascii', 'ignore')
-        response = response.decode("utf-8")
+        brain.setMemory("explain_message", message)
 
-        response = CommandResponse(CommandResponse.CODE_OK, [response]);
+        # Get summary
+        summary = wikipedia.summary(search, sentences=numSentences)
+
+        # save request for continuing
+        brain.setMemory("explain_message_len", len(summary))
+        brain.setMemory("explain_message_sentences", numSentences)
+
+        # remove anything we have already said
+        summary = summary[removeLength:]
+        # If we still have more to say clean up the response
+        if summary:
+            summary = unicodedata.normalize('NFKD', summary).encode('ascii', 'ignore')
+            summary = summary.decode("utf-8")
+        else:
+            if isContinue:
+                summary = "That is all I know about that"
+            else:
+                summary = "I don't know anything about that"
+
+        # get CommandResposne
+        response = CommandResponse(CommandResponse.CODE_OK, [summary])
+
         return response
 
+    # ----------------------
+    # Remove words we don't want to search for
+    # ----------------------
     def sanitizeSearch(self, message):
 
         # remove words in keywords from search
